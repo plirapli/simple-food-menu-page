@@ -1,0 +1,126 @@
+$color-1st: #150f4d;
+$color-2nd: #f6b71e;
+$color-3rd: #e41d0e;
+$color-gray: #f2f2f2;
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+body {
+  margin: 0;
+  padding: 2em;
+  box-sizing: border-box;
+  font-family: "Oswald", sans-serif;
+  height: 100vh;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.main-container {
+  height: 100%;
+  display: flex;
+  gap: 2em;
+}
+
+// Navigation Menu
+.nav {
+  padding: 2em;
+  gap: 3em;
+  background-color: $color-1st;
+  border-radius: 2em;
+  @include flex(column, stretch);
+
+  &-brand {
+    font-size: 2rem;
+    color: $color-2nd;
+    text-align: center;
+
+    span {
+      color: $color-3rd;
+    }
+  }
+
+  &-menu {
+    list-style: none;
+    color: white;
+    // border: 2px solid white;
+
+    li {
+      margin-bottom: 1.2em;
+      border-radius: 2em;
+      a {
+        @include flex($justify: stretch);
+        text-decoration: none;
+        gap: 1.2em;
+        padding: 12px 32px;
+        padding-right: 96px;
+        color: white;
+      }
+
+      &.active {
+        background-color: $color-2nd;
+
+        &:hover {
+          background-color: $color-2nd;
+        }
+      }
+      &:hover {
+        background-color: rgba($color: $color-2nd, $alpha: 0.2);
+      }
+    }
+  }
+}
+
+// Right Content
+.container {
+  border: 2px solid red;
+  flex-grow: 2;
+
+  .header-top {
+    @include flex($justify: space-between);
+    border: 2px solid red;
+
+    .search {
+      //   border: 2px solid red;
+      @include flex();
+      gap: 12px;
+      padding: 8px;
+      background-color: $color-gray;
+      border-radius: 2em;
+
+      input {
+        background-color: $color-gray;
+        border: 0;
+        padding: 8px 256px 8px 12px;
+        outline: none;
+        font-size: 1em;
+        font-family: "Oswald", sans-serif;
+        color: black;
+
+        &::placeholder {
+          font-weight: 500;
+          color: darken($color: $color-gray, $amount: 20);
+        }
+      }
+
+      i {
+        padding: 8px;
+        cursor: pointer;
+        color: darken($color: $color-gray, $amount: 20);
+        // border: 2px solid red;
+      }
+    }
+
+    .users {
+      border: 2px solid red;
+      @include flex($justify: stretch);
+    }
+  }
+}
