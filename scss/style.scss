@@ -2,6 +2,18 @@ $color-1st: #150f4d;
 $color-2nd: #f6b71e;
 $color-3rd: #e41d0e;
 $color-gray: #f2f2f2;
+$color-darken-gray: darken(
+  $color: $color-gray,
+  $amount: 20,
+);
+$black-boxshadow: 1px 1px 6px -2px rgba(
+    $color: #000000,
+    $alpha: 0.4,
+  );
+
+@mixin ease() {
+  transition: all 300ms ease;
+}
 
 @mixin flex($direction: row, $justify: center, $align: center) {
   display: flex;
@@ -10,12 +22,16 @@ $color-gray: #f2f2f2;
   align-items: $align;
 }
 
+html {
+  margin: 0;
+}
+
 body {
   margin: 0;
-  padding: 2em;
+  padding: 2.2em;
   box-sizing: border-box;
   font-family: "Oswald", sans-serif;
-  height: 100vh;
+  // height: 100vh;
 }
 
 * {
@@ -27,15 +43,26 @@ body {
   height: 100%;
   display: flex;
   gap: 2em;
+  // border: 2px solid red;
+}
+
+h1,
+h2,
+h3 {
+  color: $color-2nd;
+  span {
+    color: $color-3rd;
+  }
 }
 
 // Navigation Menu
 .nav {
+  @include flex(column, stretch);
   padding: 2em;
   gap: 3em;
   background-color: $color-1st;
   border-radius: 2em;
-  @include flex(column, stretch);
+  box-shadow: $black-boxshadow;
 
   &-brand {
     font-size: 2rem;
@@ -80,47 +107,203 @@ body {
 
 // Right Content
 .container {
-  border: 2px solid red;
+  @include flex(column, space-between, stretch);
+  gap: 1.8em;
   flex-grow: 2;
+  // border: 2px solid red;
 
+  // Header Top
   .header-top {
     @include flex($justify: space-between);
-    border: 2px solid red;
+    // border: 2px solid red;
+    height: 64px;
 
     .search {
-      //   border: 2px solid red;
-      @include flex();
+      // border: 2px solid red;
+      @include flex($justify: space-between);
       gap: 12px;
-      padding: 8px;
+      padding: 0 24px;
       background-color: $color-gray;
       border-radius: 2em;
+      height: 100%;
 
       input {
-        background-color: $color-gray;
+        background: none;
         border: 0;
-        padding: 8px 256px 8px 12px;
         outline: none;
         font-size: 1em;
         font-family: "Oswald", sans-serif;
         color: black;
+        width: 400px;
 
         &::placeholder {
           font-weight: 500;
-          color: darken($color: $color-gray, $amount: 20);
+          color: $color-darken-gray;
         }
       }
 
       i {
-        padding: 8px;
+        padding: 0px;
         cursor: pointer;
-        color: darken($color: $color-gray, $amount: 20);
+        color: $color-darken-gray;
         // border: 2px solid red;
+        @include ease();
+
+        &:hover {
+          color: black;
+        }
       }
     }
 
     .users {
-      border: 2px solid red;
+      //   border: 2px solid red;
       @include flex($justify: stretch);
+      gap: 1em;
+      height: 100%;
+
+      .user {
+        height: 100%;
+        padding: 0 22px 0 18px;
+        @include flex($justify: stretch);
+        gap: 12px;
+        border: 2px solid $color-gray;
+        border-radius: 2em;
+        // box-shadow: $black-boxshadow;
+        cursor: pointer;
+        @include ease();
+
+        .img-profile {
+          background-image: url(../img/profile-default.jpg);
+          background-size: cover;
+          width: 40px;
+          height: 40px;
+          //   border: 2px solid blue;
+          border-radius: 50%;
+          border: 2px solid $color-gray;
+          @include ease();
+        }
+
+        .user-name {
+          font-weight: 500;
+        }
+        i {
+          color: $color-darken-gray;
+          margin-top: 2px;
+        }
+
+        &:hover {
+          border: 2px solid $color-darken-gray;
+
+          .img-profile {
+            border: 2px solid $color-darken-gray;
+          }
+        }
+      }
+
+      .cart {
+        height: 100%;
+        // border: 2px solid red;
+        box-shadow: $black-boxshadow;
+        border-radius: 1em;
+        background-color: $color-1st;
+        cursor: pointer;
+        @include flex();
+
+        i {
+          padding: 0 24px;
+          color: white;
+        }
+      }
+    }
+  }
+
+  // Header Main
+  .header-main {
+    border: 2px solid red;
+    @include flex($justify: space-between);
+    padding: 0 8px 0 1em;
+
+    .title {
+      font-size: 2em;
+      line-height: 2.5em;
+
+      h1 {
+        font-weight: 700;
+      }
+    }
+
+    .header-img {
+      width: 267px;
+      height: 320px;
+      // border: 2px solid red;
+      background-image: url(../img/header-img.png);
+      background-size: cover;
+    }
+  }
+
+  // Menu Content
+  .content {
+    border: 2px solid red;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.8em;
+
+    .menu {
+      @include flex(column);
+      padding: 1em 1em 2.4em;
+      // border: 2px solid blue;
+      background: $color-gray;
+      border-radius: 2em;
+      color: black;
+      position: relative;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: $black-boxshadow;
+      @include ease();
+
+      .menu-img {
+        width: 72px;
+        height: 72px;
+        background: url(../img/food-menu/salad/salad-1.jpg);
+        background-size: cover;
+        border-radius: 50%;
+      }
+
+      .menu-name {
+        margin-top: 0.8em;
+        font-weight: 500;
+      }
+
+      .menu-price {
+        margin-top: 0.2em;
+        font-size: 0.8em;
+        color: $color-darken-gray;
+      }
+
+      .add-chart {
+        color: #fff;
+        text-align: center;
+        background-color: $color-2nd;
+        border-radius: 50%;
+        position: absolute;
+        display: block;
+        transform: translateY(50%);
+        padding: 8px 13px;
+        bottom: 0;
+        // opacity: 1;
+        box-shadow: $black-boxshadow;
+        clip-path: circle(0);
+        @include ease();
+      }
+
+      &:hover {
+        box-shadow: 2px 2px 10px -3px rgba($color: #000000, $alpha: 0.4);
+
+        .add-chart {
+          clip-path: circle(100%);
+          // opacity: 1;
+        }
+      }
     }
   }
 }
