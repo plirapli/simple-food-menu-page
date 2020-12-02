@@ -189,6 +189,7 @@ h3 {
         i {
           color: $color-darken-gray;
           margin-top: 2px;
+          @include ease();
         }
 
         &:hover {
@@ -197,21 +198,36 @@ h3 {
           .img-profile {
             border: 2px solid $color-darken-gray;
           }
+
+          i {
+            color: #000;
+          }
         }
       }
 
       .cart {
         height: 100%;
-        // border: 2px solid red;
+        width: 64px;
+        border: 2px solid $color-1st;
         box-shadow: $black-boxshadow;
         border-radius: 1em;
         background-color: $color-1st;
         cursor: pointer;
         @include flex();
+        @include ease();
 
         i {
-          padding: 0 24px;
           color: white;
+        }
+
+        &:hover {
+          border-radius: 50%;
+          font-size: 1.1em;
+          background-color: #fff;
+
+          i {
+            color: $color-1st;
+          }
         }
       }
     }
@@ -219,7 +235,7 @@ h3 {
 
   // Header Main
   .header-main {
-    border: 2px solid red;
+    // border: 2px solid red;
     @include flex($justify: space-between);
     padding: 0 8px 0 1em;
 
@@ -243,7 +259,7 @@ h3 {
 
   // Menu Content
   .content {
-    border: 2px solid red;
+    // border: 2px solid red;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 1.8em;
@@ -267,6 +283,7 @@ h3 {
         background: url(../img/food-menu/salad/salad-1.jpg);
         background-size: cover;
         border-radius: 50%;
+        @include ease();
       }
 
       .menu-name {
@@ -298,6 +315,10 @@ h3 {
 
       &:hover {
         box-shadow: 2px 2px 10px -3px rgba($color: #000000, $alpha: 0.4);
+
+        .menu-img {
+          transform: rotate(20deg);
+        }
 
         .add-chart {
           clip-path: circle(100%);
