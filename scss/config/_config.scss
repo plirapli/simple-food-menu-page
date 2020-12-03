@@ -1,0 +1,52 @@
+$color-1st: #150f4d;
+$color-2nd: #f6b71e;
+$color-3rd: #e41d0e;
+$color-gray: #f2f2f2;
+$color-darken-gray: darken(
+  $color: $color-gray,
+  $amount: 20,
+);
+$black-boxshadow: 1px 1px 6px -2px rgba(
+    $color: #000000,
+    $alpha: 0.4,
+  );
+
+$black-boxshadow-hover: 2px 2px 10px -3px rgba(
+    $color: #000000,
+    $alpha: 0.4,
+  );
+
+@mixin ease() {
+  transition: all 300ms ease;
+}
+
+@mixin flex($direction: row, $justify: center, $align: center) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+// Media Query
+@mixin media-1080 {
+  @media screen and (max-width: 1080px) {
+    @content;
+  }
+}
+
+@mixin media-1200 {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+// @mixin mediaLg {
+//   @media screen and (min-width: 769px) and (max-width: 1170px) {
+//     @content;
+//   }
+// }
+// @mixin mediaXl {
+//   @media screen and (min-width: 1025px) {
+//     @content;
+//   }
+// }

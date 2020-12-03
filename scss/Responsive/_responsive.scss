@@ -1,0 +1,60 @@
+@include media-1200 {
+  .nav {
+    gap: 1em;
+    padding: 2em;
+
+    &-brand {
+      font-size: 1.5em;
+    }
+
+    &-menu {
+      li {
+        // border: 2px solid red;
+        border-radius: 1em;
+        margin-bottom: 12px;
+
+        a {
+          @include flex(column);
+          gap: 8px;
+          padding: 1em;
+          font-size: 1em;
+        }
+      }
+    }
+  }
+
+  .container {
+    .content {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+@include media-1080 {
+  .container {
+    .header-top {
+      //   border: 2px solid red;
+
+      .search {
+        // border: 2px solid red;
+        padding: 0 24px;
+        @include ease();
+
+        input {
+          width: 0;
+          @include ease();
+
+          &:focus {
+            width: 240px;
+          }
+        }
+
+        &:hover {
+          input {
+            width: 240px;
+          }
+        }
+      }
+    }
+  }
+}
