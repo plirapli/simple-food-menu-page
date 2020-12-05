@@ -1,4 +1,5 @@
 @import "config/config";
+@import "icon/nav-menu/style";
 
 * {
   margin: 0;
@@ -9,14 +10,17 @@
 body {
   padding: 2.2em;
   font-family: "Oswald", sans-serif;
-  // height: 100vh;
+  min-height: 100vh;
+  // min-width: 100vw;
 }
 
 .main-container {
   height: 100%;
+  width: 100%;
   display: flex;
   gap: 2em;
   // border: 2px solid red;
+  overflow: hidden;
 }
 
 h1,
@@ -59,8 +63,13 @@ h3 {
         @include flex($justify: stretch);
         text-decoration: none;
         gap: 1.2em;
-        padding: 12px 96px 12px 32px;
+        padding: 12px 64px 12px 32px;
         color: white;
+
+        i {
+          font-size: 24px;
+          // border: 2px solid red;
+        }
       }
 
       &.active {
@@ -255,6 +264,46 @@ h3 {
         background-size: cover;
         border-radius: 50%;
         @include ease();
+      }
+
+      &.menu1 .menu-img {
+        background-image: url(../img/food-menu/hamburger/hamburger-1.jpg);
+      }
+
+      &.menu2 .menu-img {
+        background-image: url(../img/food-menu/hamburger/hamburger-2.jpg);
+      }
+
+      &.menu3 .menu-img {
+        background-image: url(../img/food-menu/pizza/pizza-1.jpg);
+      }
+
+      &.menu4 .menu-img {
+        background-image: url(../img/food-menu/pizza/pizza-2.jpg);
+      }
+
+      &.menu5 .menu-img {
+        background-image: url(../img/food-menu/salad/salad-1.jpg);
+      }
+
+      &.menu6 .menu-img {
+        background-image: url(../img/food-menu/salad/salad-2.jpg);
+      }
+
+      &.menu7 .menu-img {
+        background-image: url(../img/food-menu/french-fries/french-fries-1.jpg);
+      }
+
+      &.menu8 .menu-img {
+        background-image: url(../img/food-menu/noodles/noodles-1.jpg);
+      }
+
+      &.menu9 .menu-img {
+        background-image: url(../img/food-menu/noodles/noodles-2.jpg);
+      }
+
+      &.menu10 .menu-img {
+        background-image: url(../img/food-menu/sushi/sushi-1.jpg);
       }
 
       .menu-name {
