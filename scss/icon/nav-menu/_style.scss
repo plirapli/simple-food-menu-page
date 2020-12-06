@@ -63,3 +63,8 @@
     content: $pzs-sushi;
   }
 }
+.pzs-cart {
+  &:before {
+    content: $pzs-cart;
+  }
+}

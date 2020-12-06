@@ -20,7 +20,7 @@ body {
   display: flex;
   gap: 2em;
   // border: 2px solid red;
-  overflow: hidden;
+  // overflow: hidden;
 }
 
 h1,
@@ -198,11 +198,10 @@ h3 {
 
         i {
           color: white;
+          font-size: 1.2em;
         }
 
         &:hover {
-          border-radius: 50%;
-          font-size: 1.1em;
           background-color: #fff;
 
           i {
@@ -241,12 +240,12 @@ h3 {
   .content {
     // border: 2px solid red;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 1.8em;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2em;
 
     .menu {
       @include flex(column);
-      padding: 1em 1em 2.4em;
+      padding: 1em 12px 2.4em;
       // border: 2px solid blue;
       background: $color-gray;
       border-radius: 2em;
@@ -283,11 +282,11 @@ h3 {
       }
 
       &.menu5 .menu-img {
-        background-image: url(../img/food-menu/salad/salad-1.jpg);
+        background-image: url(../img/food-menu/chicken/chicken-1.jpg);
       }
 
       &.menu6 .menu-img {
-        background-image: url(../img/food-menu/salad/salad-2.jpg);
+        background-image: url(../img/food-menu/chicken/chicken-2.jpg);
       }
 
       &.menu7 .menu-img {
@@ -303,17 +302,34 @@ h3 {
       }
 
       &.menu10 .menu-img {
+        background-image: url(../img/food-menu/noodles/noodles-3.jpg);
+      }
+
+      &.menu11 .menu-img {
+        background-image: url(../img/food-menu/noodles/noodles-4.jpg);
+      }
+
+      &.menu12 .menu-img {
+        background-image: url(../img/food-menu/noodles/noodles-5.jpg);
+      }
+
+      &.menu13 .menu-img {
         background-image: url(../img/food-menu/sushi/sushi-1.jpg);
+      }
+
+      &.menu14 .menu-img {
+        background-image: url(../img/food-menu/sushi/sushi-2.jpg);
       }
 
       .menu-name {
         margin-top: 0.8em;
         font-weight: 500;
+        font-size: 1rem;
       }
 
       .menu-price {
         margin-top: 0.2em;
-        font-size: 0.8em;
+        font-size: 14px;
         color: $color-darken-gray;
       }
 
