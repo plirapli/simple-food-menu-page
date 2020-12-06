@@ -8,10 +8,9 @@
 }
 
 body {
+  min-height: 100vh;
   padding: 2.2em;
   font-family: "Oswald", sans-serif;
-  min-height: 100vh;
-  // min-width: 100vw;
 }
 
 .main-container {
@@ -20,7 +19,6 @@ body {
   display: flex;
   gap: 2em;
   // border: 2px solid red;
-  // overflow: hidden;
 }
 
 h1,
@@ -35,11 +33,12 @@ h3 {
 // Navigation Menu
 .nav {
   @include flex(column, stretch);
-  padding: 2em;
+  padding: 1.8em;
   gap: 3em;
   background-color: $color-1st;
   border-radius: 2em;
   box-shadow: $black-boxshadow;
+  // border: 2px solid red;
 
   &-brand {
     font-size: 2rem;
@@ -54,7 +53,7 @@ h3 {
   &-menu {
     list-style: none;
     color: white;
-    // border: 2px solid white;
+    border: 2px solid white;
 
     li {
       margin-bottom: 1.2em;
@@ -63,7 +62,7 @@ h3 {
         @include flex($justify: stretch);
         text-decoration: none;
         gap: 1.2em;
-        padding: 12px 64px 12px 32px;
+        padding: 12px 48px 12px 32px;
         color: white;
 
         i {
@@ -91,7 +90,7 @@ h3 {
   @include flex(column, space-between, stretch);
   gap: 1.8em;
   flex-grow: 2;
-  // border: 2px solid red;
+  // border: 2px solid blue;
 
   // Header Top
   .header-top {
@@ -192,6 +191,7 @@ h3 {
         box-shadow: $black-boxshadow;
         border-radius: 1em;
         background-color: $color-1st;
+        position: relative;
         cursor: pointer;
         @include flex();
         @include ease();
@@ -199,6 +199,22 @@ h3 {
         i {
           color: white;
           font-size: 1.2em;
+        }
+
+        &::after {
+          content: "2";
+          color: white;
+          text-align: center;
+          font-size: 0.6rem;
+          font-weight: 700;
+          padding: 5px 10px;
+          // border: 2px solid red;
+          border-radius: 50%;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          background-color: $color-2nd;
+          transform: translate(30%, 30%);
         }
 
         &:hover {
@@ -240,7 +256,7 @@ h3 {
   .content {
     // border: 2px solid red;
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
     gap: 2em;
 
     .menu {
@@ -252,74 +268,77 @@ h3 {
       color: black;
       position: relative;
       text-align: center;
-      cursor: pointer;
       box-shadow: $black-boxshadow;
       @include ease();
 
       .menu-img {
         width: 72px;
         height: 72px;
-        background: url(../img/food-menu/salad/salad-1.jpg);
-        background-size: cover;
         border-radius: 50%;
+        overflow: hidden;
         @include ease();
+
+        img {
+          width: 100%;
+          background-size: cover;
+        }
       }
 
-      &.menu1 .menu-img {
-        background-image: url(../img/food-menu/hamburger/hamburger-1.jpg);
-      }
+      // &.menu-1 .menu-img {
+      //   background-image: url(../img/food-menu/hamburger/hamburger-1.jpg);
+      // }
 
-      &.menu2 .menu-img {
-        background-image: url(../img/food-menu/hamburger/hamburger-2.jpg);
-      }
+      // &.menu-2 .menu-img {
+      //   background-image: url(../img/food-menu/hamburger/hamburger-2.jpg);
+      // }
 
-      &.menu3 .menu-img {
-        background-image: url(../img/food-menu/pizza/pizza-1.jpg);
-      }
+      // &.menu-3 .menu-img {
+      //   background-image: url(../img/food-menu/pizza/pizza-1.jpg);
+      // }
 
-      &.menu4 .menu-img {
-        background-image: url(../img/food-menu/pizza/pizza-2.jpg);
-      }
+      // &.menu-4 .menu-img {
+      //   background-image: url(../img/food-menu/pizza/pizza-2.jpg);
+      // }
 
-      &.menu5 .menu-img {
-        background-image: url(../img/food-menu/chicken/chicken-1.jpg);
-      }
+      // &.menu-5 .menu-img {
+      //   background-image: url(../img/food-menu/chicken/chicken-1.jpg);
+      // }
 
-      &.menu6 .menu-img {
-        background-image: url(../img/food-menu/chicken/chicken-2.jpg);
-      }
+      // &.menu-6 .menu-img {
+      //   background-image: url(../img/food-menu/chicken/chicken-2.jpg);
+      // }
 
-      &.menu7 .menu-img {
-        background-image: url(../img/food-menu/french-fries/french-fries-1.jpg);
-      }
+      // &.menu-7 .menu-img {
+      //   background-image: url(../img/food-menu/french-fries/french-fries-1.jpg);
+      // }
 
-      &.menu8 .menu-img {
-        background-image: url(../img/food-menu/noodles/noodles-1.jpg);
-      }
+      // &.menu-8 .menu-img {
+      //   background-image: url(../img/food-menu/noodles/noodles-1.jpg);
+      // }
 
-      &.menu9 .menu-img {
-        background-image: url(../img/food-menu/noodles/noodles-2.jpg);
-      }
+      // &.menu-9 .menu-img {
+      //   background-image: url(../img/food-menu/noodles/noodles-2.jpg);
+      // }
 
-      &.menu10 .menu-img {
-        background-image: url(../img/food-menu/noodles/noodles-3.jpg);
-      }
+      // &.menu-10 .menu-img {
+      //   background-image: url(../img/food-menu/noodles/noodles-3.jpg);
+      // }
 
-      &.menu11 .menu-img {
-        background-image: url(../img/food-menu/noodles/noodles-4.jpg);
-      }
+      // &.menu-11 .menu-img {
+      //   background-image: url(../img/food-menu/noodles/noodles-4.jpg);
+      // }
 
-      &.menu12 .menu-img {
-        background-image: url(../img/food-menu/noodles/noodles-5.jpg);
-      }
+      // &.menu-12 .menu-img {
+      //   background-image: url(../img/food-menu/noodles/noodles-5.jpg);
+      // }
 
-      &.menu13 .menu-img {
-        background-image: url(../img/food-menu/sushi/sushi-1.jpg);
-      }
+      // &.menu-13 .menu-img {
+      //   background-image: url(../img/food-menu/sushi/sushi-1.jpg);
+      // }
 
-      &.menu14 .menu-img {
-        background-image: url(../img/food-menu/sushi/sushi-2.jpg);
-      }
+      // &.menu-14 .menu-img {
+      //   background-image: url(../img/food-menu/sushi/sushi-2.jpg);
+      // }
 
       .menu-name {
         margin-top: 0.8em;
@@ -346,6 +365,7 @@ h3 {
         // opacity: 1;
         box-shadow: $black-boxshadow;
         clip-path: circle(0);
+        cursor: pointer;
         @include ease();
       }
 
