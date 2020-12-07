@@ -59,6 +59,30 @@
             "name": "hamburger",
             "price": 35000,
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 11,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 12,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 13,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 14,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         }
     ]
 }

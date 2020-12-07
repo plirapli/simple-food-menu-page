@@ -28,14 +28,8 @@ $black-boxshadow-hover: 2px 2px 10px -3px rgba(
 }
 
 // Media Query
-@mixin media-1080 {
-  @media screen and (max-width: 1080px) {
-    @content;
-  }
-}
-
-@mixin media-1200 {
-  @media screen and (max-width: 1200px) {
+@mixin media-1570 {
+  @media screen and (min-width: 1570px) {
     @content;
   }
 }
@@ -46,8 +40,14 @@ $black-boxshadow-hover: 2px 2px 10px -3px rgba(
   }
 }
 
-@mixin media-1570 {
-  @media screen and (min-width: 1570px) {
+@mixin media-1200 {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin media-1080 {
+  @media screen and (max-width: 1080px) {
     @content;
   }
 }
@@ -58,8 +58,8 @@ $black-boxshadow-hover: 2px 2px 10px -3px rgba(
   }
 }
 
-// @mixin mediaXl {
-//   @media screen and (min-width: 1025px) {
-//     @content;
-//   }
-// }
+@mixin media-860 {
+  @media screen and (max-width: 860px) {
+    @content;
+  }
+}

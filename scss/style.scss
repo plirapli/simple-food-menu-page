@@ -243,6 +243,10 @@ h3 {
       font-size: 2em;
       line-height: 2.5em;
 
+      .header-brand {
+        display: none;
+      }
+
       h1 {
         font-weight: 700;
       }
@@ -251,7 +255,7 @@ h3 {
     .header-img {
       width: 267px;
       height: 320px;
-      // border: 2px solid red;
+      border: 2px solid red;
       background-image: url(../img/header-img.png);
       background-size: cover;
     }

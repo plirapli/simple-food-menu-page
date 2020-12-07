@@ -1,0 +1,45 @@
+@include media-860 {
+  .container {
+    .header-main {
+      //   border: 2px solid red;
+      background-color: $color-1st;
+      padding: 1.5em;
+      width: 100%;
+      border-radius: 2em;
+      @include flex();
+
+      .title {
+        margin: auto;
+        font-size: 1.2em;
+        text-align: center;
+        // border: 2px solid red;
+        line-height: normal;
+
+        h1.header-brand {
+          margin-top: -32px;
+          //   line-height: 0;
+          //   border: 2px solid red;
+          display: block;
+          font-size: 4em;
+        }
+
+        .tagline {
+          //   border: 2px solid red;
+          @include flex();
+          gap: 0.6em;
+
+          h1 {
+            color: white;
+            span {
+              color: white;
+            }
+          }
+        }
+      }
+
+      .header-img {
+        display: none;
+      }
+    }
+  }
+}
