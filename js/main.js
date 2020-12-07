@@ -24,3 +24,9 @@ xhttp.onreadystatechange = function() {
 };
 xhttp.open("GET", "../json/menu.json", true);
 xhttp.send();
+
+document.querySelector('.menu-bar').addEventListener('click', () => {
+    document.querySelector('.nav').classList.toggle('show')
+    document.querySelector('.menu-bar').classList.toggle('close')
+    document.querySelectorAll('.menu-btn').forEach((btn) => btn.classList.toggle('close'))
+})

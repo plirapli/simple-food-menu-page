@@ -11,6 +11,7 @@ body {
   min-height: 100vh;
   padding: 2.2em;
   font-family: "Oswald", sans-serif;
+  position: relative;
 }
 
 .main-container {
@@ -31,6 +32,10 @@ h3 {
 }
 
 // Navigation Menu
+.menu-bar {
+  display: none;
+}
+
 .nav {
   @include flex(column, stretch);
   padding: 1.8em;
@@ -53,7 +58,7 @@ h3 {
   &-menu {
     list-style: none;
     color: white;
-    border: 2px solid white;
+    // border: 2px solid white;
 
     li {
       margin-bottom: 1.2em;

@@ -23,4 +23,21 @@
       }
     }
   }
+
+  .container {
+    .header-top {
+      //   border: 2px solid red;
+
+      .search {
+        // border: 2px solid red;
+        padding: 24px;
+        @include ease();
+
+        input {
+          width: 240px;
+          @include ease();
+        }
+      }
+    }
+  }
 }
