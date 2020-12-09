@@ -96,302 +96,227 @@ h3 {
   gap: 1.8em;
   flex-grow: 2;
   // border: 2px solid blue;
+}
 
-  // Header Top
-  .header-top {
-    @include flex($justify: space-between);
-    // border: 2px solid red;
-    height: 56px;
+// Header Top
+.header-top {
+  @include flex($justify: space-between);
+  // border: 2px solid red;
+  height: 48px;
 
-    .search {
-      // border: 2px solid red;
-      @include flex($justify: space-between);
-      padding: 24px;
-      background-color: $color-gray;
-      border-radius: 2em;
+  @include search($width: 400px, $padding: 24px);
+
+  .users {
+    //   border: 2px solid red;
+    @include flex($justify: stretch);
+    gap: 1em;
+    height: 100%;
+
+    .user {
       height: 100%;
-
-      input {
-        background: none;
-        border: 0;
-        outline: none;
-        font-size: 1em;
-        font-family: "Oswald", sans-serif;
-        color: black;
-        width: 400px;
-
-        &::placeholder {
-          font-weight: 500;
-          color: $color-darken-gray;
-        }
-      }
-
-      i {
-        padding: 0px;
-        cursor: pointer;
-        color: $color-darken-gray;
-        // border: 2px solid red;
-        @include ease();
-
-        &:hover {
-          color: black;
-        }
-      }
-    }
-
-    .users {
-      //   border: 2px solid red;
+      padding: 0 14px 0 8px;
       @include flex($justify: stretch);
-      gap: 1em;
-      height: 100%;
-
-      .user {
-        height: 100%;
-        padding: 0 22px 0 18px;
-        @include flex($justify: stretch);
-        gap: 12px;
-        border: 2px solid $color-gray;
-        border-radius: 2em;
-        // box-shadow: $black-boxshadow;
-        cursor: pointer;
-        @include ease();
-
-        .img-profile {
-          background-image: url(../img/profile-default.jpg);
-          background-size: cover;
-          width: 40px;
-          height: 40px;
-          //   border: 2px solid blue;
-          border-radius: 50%;
-          border: 2px solid $color-gray;
-          @include ease();
-        }
-
-        .user-name {
-          font-weight: 500;
-        }
-        i {
-          color: $color-darken-gray;
-          margin-top: 2px;
-          @include ease();
-        }
-
-        &:hover {
-          border: 2px solid $color-darken-gray;
-
-          .img-profile {
-            border: 2px solid $color-darken-gray;
-          }
-
-          i {
-            color: #000;
-          }
-        }
-      }
-
-      .cart {
-        height: 100%;
-        width: 56px;
-        border: 2px solid $color-1st;
-        box-shadow: $black-boxshadow;
-        border-radius: 1em;
-        background-color: $color-1st;
-        position: relative;
-        cursor: pointer;
-        @include flex();
-        @include ease();
-
-        i {
-          color: white;
-          font-size: 1.2em;
-        }
-
-        &::after {
-          content: "2";
-          color: white;
-          text-align: center;
-          font-size: 0.6rem;
-          font-weight: 700;
-          padding: 5px 10px;
-          // border: 2px solid red;
-          border-radius: 50%;
-          position: absolute;
-          bottom: 0;
-          right: 0;
-          background-color: $color-2nd;
-          transform: translate(30%, 30%);
-        }
-
-        &:hover {
-          background-color: #fff;
-
-          i {
-            color: $color-1st;
-          }
-        }
-      }
-    }
-  }
-
-  // Header Main
-  .header-main {
-    // border: 2px solid red;
-    @include flex($justify: space-between);
-    padding: 0 8px 0 1em;
-
-    .title {
-      font-size: 2em;
-      line-height: 2.5em;
-
-      .header-brand {
-        display: none;
-      }
-
-      h1 {
-        font-weight: 700;
-      }
-    }
-
-    .header-img {
-      width: 267px;
-      height: 320px;
-      border: 2px solid red;
-      background-image: url(../img/header-img.png);
-      background-size: cover;
-    }
-  }
-
-  // Menu Content
-  .content {
-    // border: 2px solid red;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 2em;
-
-    .menu {
-      @include flex(column);
-      padding: 1em 12px 2.4em;
-      // border: 2px solid blue;
-      background: $color-gray;
+      gap: 12px;
+      border: 2px solid $color-gray;
       border-radius: 2em;
-      color: black;
-      position: relative;
-      text-align: center;
-      box-shadow: $black-boxshadow;
+      // box-shadow: $black-boxshadow;
+      cursor: pointer;
       @include ease();
 
-      .menu-img {
-        width: 72px;
-        height: 72px;
+      .img-profile {
+        background-image: url(../img/profile-default.jpg);
+        background-size: cover;
+        width: 36px;
+        height: 36px;
+        //   border: 2px solid blue;
         border-radius: 50%;
-        overflow: hidden;
+        border: 2px solid $color-gray;
         @include ease();
-
-        img {
-          width: 100%;
-          background-size: cover;
-        }
       }
 
-      // &.menu-1 .menu-img {
-      //   background-image: url(../img/food-menu/hamburger/hamburger-1.jpg);
-      // }
-
-      // &.menu-2 .menu-img {
-      //   background-image: url(../img/food-menu/hamburger/hamburger-2.jpg);
-      // }
-
-      // &.menu-3 .menu-img {
-      //   background-image: url(../img/food-menu/pizza/pizza-1.jpg);
-      // }
-
-      // &.menu-4 .menu-img {
-      //   background-image: url(../img/food-menu/pizza/pizza-2.jpg);
-      // }
-
-      // &.menu-5 .menu-img {
-      //   background-image: url(../img/food-menu/chicken/chicken-1.jpg);
-      // }
-
-      // &.menu-6 .menu-img {
-      //   background-image: url(../img/food-menu/chicken/chicken-2.jpg);
-      // }
-
-      // &.menu-7 .menu-img {
-      //   background-image: url(../img/food-menu/french-fries/french-fries-1.jpg);
-      // }
-
-      // &.menu-8 .menu-img {
-      //   background-image: url(../img/food-menu/noodles/noodles-1.jpg);
-      // }
-
-      // &.menu-9 .menu-img {
-      //   background-image: url(../img/food-menu/noodles/noodles-2.jpg);
-      // }
-
-      // &.menu-10 .menu-img {
-      //   background-image: url(../img/food-menu/noodles/noodles-3.jpg);
-      // }
-
-      // &.menu-11 .menu-img {
-      //   background-image: url(../img/food-menu/noodles/noodles-4.jpg);
-      // }
-
-      // &.menu-12 .menu-img {
-      //   background-image: url(../img/food-menu/noodles/noodles-5.jpg);
-      // }
-
-      // &.menu-13 .menu-img {
-      //   background-image: url(../img/food-menu/sushi/sushi-1.jpg);
-      // }
-
-      // &.menu-14 .menu-img {
-      //   background-image: url(../img/food-menu/sushi/sushi-2.jpg);
-      // }
-
-      .menu-name {
-        margin-top: 0.8em;
+      .user-name {
         font-weight: 500;
-        font-size: 1rem;
       }
-
-      .menu-price {
-        margin-top: 0.2em;
-        font-size: 14px;
+      i {
         color: $color-darken-gray;
-      }
-
-      .add-chart {
-        color: #fff;
-        text-align: center;
-        background-color: $color-2nd;
-        border-radius: 50%;
-        position: absolute;
-        display: block;
-        transform: translateY(50%);
-        padding: 8px 13px;
-        bottom: 0;
-        // opacity: 1;
-        box-shadow: $black-boxshadow;
-        clip-path: circle(0);
-        cursor: pointer;
+        margin-top: 2px;
         @include ease();
       }
 
       &:hover {
-        box-shadow: $black-boxshadow-hover;
+        border: 2px solid $color-darken-gray;
 
-        .menu-img {
-          transform: rotate(20deg);
+        .img-profile {
+          border: 2px solid $color-darken-gray;
         }
 
-        .add-chart {
-          clip-path: circle(100%);
-          // opacity: 1;
+        i {
+          color: #000;
+        }
+      }
+    }
+
+    .cart {
+      height: 100%;
+      width: 48px;
+      border: 2px solid $color-1st;
+      box-shadow: $black-boxshadow;
+      border-radius: 1em;
+      background-color: $color-1st;
+      position: relative;
+      cursor: pointer;
+      @include flex();
+      @include ease();
+
+      i {
+        color: white;
+        font-size: 1.2em;
+      }
+
+      &::after {
+        content: "2";
+        color: white;
+        text-align: center;
+        font-size: 0.6rem;
+        font-weight: 700;
+        padding: 5px 10px;
+        // border: 2px solid red;
+        border-radius: 50%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: $color-2nd;
+        transform: translate(30%, 30%);
+      }
+
+      &:hover {
+        background-color: #fff;
+
+        i {
+          color: $color-1st;
         }
       }
     }
   }
+}
+
+// Header Main
+.header-main {
+  // border: 2px solid red;
+  @include flex($justify: space-between);
+  padding: 0 8px 0 1em;
+
+  .title {
+    font-size: 2em;
+    line-height: 2.5em;
+
+    .header-brand {
+      display: none;
+    }
+
+    h1 {
+      font-weight: 700;
+    }
+  }
+
+  .header-img {
+    width: 256px;
+    height: 320px;
+    // border: 2px solid red;
+    background-image: url(../img/header-img.png);
+    background-size: cover;
+  }
+}
+
+.menu-search {
+  display: none;
+}
+
+// Menu Content
+.content {
+  // border: 2px solid red;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 2em;
+
+  .menu {
+    @include flex(column);
+    padding: 1em 12px 2.4em;
+    // border: 2px solid blue;
+    background: $color-gray;
+    border-radius: 2em;
+    color: black;
+    position: relative;
+    text-align: center;
+    box-shadow: $black-boxshadow;
+    @include ease();
+
+    .menu-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      overflow: hidden;
+      @include ease();
+
+      img {
+        width: 100%;
+        background-size: cover;
+      }
+    }
+
+    .menu-name {
+      margin-top: 0.8em;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    .menu-price {
+      margin-top: 0.2em;
+      font-size: 14px;
+      color: $color-darken-gray;
+    }
+
+    .add-chart {
+      color: #fff;
+      text-align: center;
+      background-color: $color-2nd;
+      border-radius: 50%;
+      position: absolute;
+      display: block;
+      transform: translateY(50%);
+      padding: 8px 13px;
+      bottom: 0;
+      // opacity: 1;
+      box-shadow: $black-boxshadow;
+      clip-path: circle(0);
+      cursor: pointer;
+      @include ease();
+    }
+
+    &:hover {
+      box-shadow: $black-boxshadow-hover;
+
+      .menu-img {
+        transform: rotate(20deg);
+      }
+
+      .add-chart {
+        clip-path: circle(100%);
+        // opacity: 1;
+      }
+    }
+  }
+}
+
+.menu-more {
+  @include flex();
+  display: none;
+  padding: 10px 14px 14px;
+  border-radius: 3em;
+  background-color: $color-1st;
+  color: #fff;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 @import "responsive/responsive";

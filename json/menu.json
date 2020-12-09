@@ -83,6 +83,42 @@
             "name": "hamburger",
             "price": 35000,
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 15,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 16,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 17,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 18,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 19,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+        },
+        {
+            "id": 20,
+            "name": "hamburger",
+            "price": 35000,
+            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         }
     ]
 }
