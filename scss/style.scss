@@ -103,7 +103,6 @@ h3 {
   @include flex($justify: space-between);
   // border: 2px solid red;
   height: 48px;
-
   @include search($width: 400px, $padding: 24px);
 
   .users {
