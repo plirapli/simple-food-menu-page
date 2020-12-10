@@ -43,6 +43,7 @@ h3 {
   background-color: $color-1st;
   border-radius: 2em;
   box-shadow: $black-boxshadow;
+  @include ease();
   // border: 2px solid red;
 
   &-brand {
@@ -248,7 +249,12 @@ h3 {
     position: relative;
     text-align: center;
     box-shadow: $black-boxshadow;
+    opacity: 0;
     @include ease();
+
+    &.animate {
+      opacity: 0;
+    }
 
     .menu-img {
       width: 72px;
