@@ -9,14 +9,14 @@
         },
         {
             "id": 2,
-            "name": "hamburger",
+            "name": "pizza",
             "price": 35000,
             "type":"pizza",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 3,
-            "name": "hamburger",
+            "name": "french fries",
             "price": 35000,
             "type":"fries",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
