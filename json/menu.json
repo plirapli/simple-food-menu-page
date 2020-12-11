@@ -2,122 +2,142 @@
     "menu": [
         {
             "id": 1,
-            "name": "hamburger",
+            "name": "spageti",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 2,
             "name": "hamburger",
             "price": 35000,
+            "type":"pizza",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 3,
             "name": "hamburger",
             "price": 35000,
+            "type":"fries",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 4,
             "name": "hamburger",
             "price": 35000,
+            "type":"chicken",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 5,
             "name": "hamburger",
             "price": 35000,
+            "type":"noodle",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 6,
             "name": "hamburger",
             "price": 35000,
+            "type":"sushi",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 7,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 8,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 9,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 10,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 11,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 12,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 13,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 14,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 15,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 16,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 17,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 18,
             "name": "hamburger",
             "price": 35000,
+            "type":"hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 19,
             "name": "hamburger",
             "price": 35000,
+            "type": "hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         },
         {
             "id": 20,
             "name": "hamburger",
             "price": 35000,
+            "type": "hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
         }
     ]

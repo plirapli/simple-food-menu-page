@@ -1,12 +1,12 @@
 let xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-
         let menu = JSON.parse(xhttp.responseText).menu;
-        // let mainMenu = menu.slice(0, 8);
+        
+        const menuContent = document.getElementById('menu-content');
+        const search = document.getElementById('search');
 
-        // document.getElementById('loadMore').addEventListener('click', () => {mainMenu = menu})
-
+        // Load Menu
         let output = '';
         menu.forEach(m => {
             output += 
@@ -19,8 +19,9 @@ xhttp.onreadystatechange = function() {
                 <div class="add-chart"><i class="fas fa-plus"></i></div>
             </div>`
         });
-        document.getElementById('menu-content').innerHTML = output;
+        menuContent.innerHTML = output;
 
+        // Animate On Scroll
         const animation = document.querySelectorAll('.menu');
         const options = {
             rootMargin: "-100px"
@@ -39,6 +40,25 @@ xhttp.onreadystatechange = function() {
         }, options)
 
         animation.forEach(anim => observer.observe(anim))
+
+        // Search Filter
+        search.addEventListener('input', () => {
+            let value = document.getElementById('search').value.toUpperCase()
+            console.log(value)
+            let menu = document.querySelectorAll('.menu')
+
+            for (let i = 0; i < menu.length; i++) {
+                let name = menu[i].getElementsByClassName('menu-name')[0]
+
+                if (name.innerHTML.toUpperCase().indexOf(value) > -1) {
+                    menu[i].style.display = ''
+                } else {
+                    menu[i].style.display = 'none'
+                }
+            }
+
+        });
+
     }
 };
 xhttp.open("GET", "../json/menu.json", true);
