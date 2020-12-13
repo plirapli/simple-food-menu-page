@@ -1,3 +1,4 @@
+@import "config/fonts";
 @import "config/config";
 @import "icon/pizzasta/style";
 
@@ -34,6 +35,13 @@ h3 {
 // Navigation Menu
 .menu-bar {
   display: none;
+}
+
+.img-product {
+  width: 72px;
+  height: 72px;
+  background-size: cover;
+  border-radius: 12px;
 }
 
 .nav {
@@ -325,4 +333,5 @@ h3 {
   text-transform: uppercase;
 }
 
+@import "layout/modal-cart";
 @import "responsive/responsive";
