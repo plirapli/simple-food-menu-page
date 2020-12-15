@@ -1,90 +1,106 @@
-document.getElementById('pizza').addEventListener('click', getPizza)
-document.getElementById('all').addEventListener('click', getAll)
-// document.getElementById('pizza').addEventListener('click', getPizza)
+// Navigation Menu
+document.querySelector('.menu-bar').addEventListener('click', () => {
+    document.querySelector('.nav').classList.toggle('show')
+    document.querySelector('.menu-bar').classList.toggle('close')
+    document.querySelectorAll('.menu-btn').forEach((btn) => btn.classList.toggle('close'))
+})
 
-function getAll() {
+const all = document.getElementById('all')
+const pizza = document.getElementById('pizza')
+const fries = document.getElementById('fries')
+const chicken = document.getElementById('chicken')
+const hamburger = document.getElementById('hamburger')
+const noodle = document.getElementById('noodle')
+const sushi = document.getElementById('sushi')
+
+all.addEventListener('click', () => {
+    let menuType = "all"
+    getAllMenu(menuType)
+})
+pizza.addEventListener('click', () => {
+    let menuType = "pizza"
+    getAllMenu(menuType)
+})
+fries.addEventListener('click', () => {
+    let menuType = "fries"
+    getAllMenu(menuType)
+})
+chicken.addEventListener('click', () => {
+    let menuType = "chicken"
+    getAllMenu(menuType)
+})
+hamburger.addEventListener('click', () => {
+    let menuType = "hamburger"
+    getAllMenu(menuType)
+})
+noodle.addEventListener('click', () => {
+    let menuType = "noodle"
+    getAllMenu(menuType)
+})
+sushi.addEventListener('click', () => {
+    let menuType = "sushi"
+    getAllMenu(menuType)
+})
+
+async function getAllMenu(type) {
+    let menuType = type;
     const navName = document.querySelectorAll('.nav-name');
     const activeNav = document.querySelector('.nav-name.active')
-    const pizza = document.getElementById('all');
+
+    const navType = document.getElementById(menuType)
     
     navName.forEach(nav => {
-        // if(nav )
         if (nav === activeNav) {
             nav.classList.remove('active')
-        } else {all.classList.add('active')}
+        } else {navType.classList.add('active')}
     })
 
-    fetch('../json/menu.json')
-    .then(res => res.json())
-    .then(data => {
-        const menuContent = document.getElementById('menu-content');
-        const search = document.getElementById('search');
-        let menu = data.menu;
+    const getData = await fetch('../json/menu.json');
+    const res = await getData.json();
+    let menus = await res.menu;
 
-        // Load Menu
-        let output = '';
-        menu.forEach(m => {
-            output += 
-            `<div class="menu menu-${m.id}">
-                <div class="menu-img">
-                    <img src="${m.img}" alt="">
-                </div>
-                <p class="menu-name">${m.name}</p>
-                <p class="menu-price">Rp${m.price}</p>
-                <div class="add-chart"><i class="fas fa-plus"></i></div>
+    if(menuType === "all") {
+        updateUiMenu(menus);
+    } else {
+        let newType = menus.filter(menu => menu.type === menuType)
+        updateUiMenu(newType);
+    }
+}
+
+function updateUiMenu(data) {
+    const menuContent = document.getElementById('menu-content');
+    let output = '';
+    
+    data.forEach(m => {
+        output += 
+        `<div class="menu menu-${m.id}">
+            <div class="menu-img">
+            <img src="${m.img}" alt="">
+            </div>
+            <p class="menu-name">${m.name}</p>
+            <p class="menu-price">Rp${m.price}</p>
+            <div class="add-chart"><i class="fas fa-plus"></i></div>
             </div>`
-        });
-        menuContent.innerHTML = output;
-
-        aos();
     })
+    menuContent.innerHTML = output;
+    
+    const menus = document.querySelectorAll('.menu');
+    updateAos(menus)
 }
 
 function getPizza() {
-    const navName = document.querySelectorAll('.nav-name');
-    const activeNav = document.querySelector('.nav-name.active')
-    const pizza = document.getElementById('pizza');
-    
-    navName.forEach(nav => {
-        // if(nav )
-        if (nav === activeNav) {
-            nav.classList.remove('active')
-        } else {pizza.classList.add('active')}
-    })
-
-    fetch('../json/menu.json')
-        .then(res => res.json())
-        .then(data => {
-            let menus = data.menu
-            const pizza = menus.filter(menu => menu.type === 'pizza')
-            
-        // Load Menu
-        const menuContent = document.getElementById('menu-content');
-        let output = '';
-        pizza.forEach(m => {
-            output += 
-            `<div class="menu menu-${m.id}">
-                <div class="menu-img">
-                    <img src="${m.img}" alt="">
-                </div>
-                <p class="menu-name">${m.name}</p>
-                <p class="menu-price">Rp${m.price}</p>
-                <div class="add-chart"><i class="fas fa-plus"></i></div>
-            </div>`
-        });
-        menuContent.innerHTML = output;
-
-        aos();
-        })
+    // let menus = data.menu
+    // 
 }
 
-getAll();
-
 // Animate On Scroll
-function aos() {
-    const animation = document.querySelectorAll('.menu');
-    const options = { rootMargin: "-28px" }
+function updateAos(menu) {
+    const data = menu;
+    const options = { rootMargin: "-28px" };
+    aos(data, options)
+}
 
+function aos(animate, option) {
     observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if(entry.intersectionRatio > 0) {
@@ -94,10 +110,12 @@ function aos() {
                 entry.target.style.animation = 'none'
             }
         })
-    }, options)
+    }, option)
 
-    animation.forEach(anim => observer.observe(anim))
+    animate.forEach(anim => observer.observe(anim))
 }
+
+getAllMenu("all");
 
 //         // Search Filter
 //         search.addEventListener('input', () => {
@@ -117,9 +135,12 @@ function aos() {
 
 //         });
 
-// Navigation Menu
-document.querySelector('.menu-bar').addEventListener('click', () => {
-    document.querySelector('.nav').classList.toggle('show')
-    document.querySelector('.menu-bar').classList.toggle('close')
-    document.querySelectorAll('.menu-btn').forEach((btn) => btn.classList.toggle('close'))
+const modalCart = document.getElementById('modal-cart');
+
+// document.getElementById('all').addEventListener('click', getAllMenu)
+
+// Cart Button
+document.getElementById('cart').addEventListener('click', () => {
+    modalCart.style.display = 'block'
 })
+document.querySelector('.modal-header .close').addEventListener('click', () => modalCart.style.display = 'none')
