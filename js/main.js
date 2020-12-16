@@ -5,55 +5,35 @@ document.querySelector('.menu-bar').addEventListener('click', () => {
     document.querySelectorAll('.menu-btn').forEach((btn) => btn.classList.toggle('close'))
 })
 
-const all = document.getElementById('all')
-const pizza = document.getElementById('pizza')
-const fries = document.getElementById('fries')
-const chicken = document.getElementById('chicken')
-const hamburger = document.getElementById('hamburger')
-const noodle = document.getElementById('noodle')
-const sushi = document.getElementById('sushi')
-
-all.addEventListener('click', () => {
-    let menuType = "all"
-    getAllMenu(menuType)
-})
-pizza.addEventListener('click', () => {
-    let menuType = "pizza"
-    getAllMenu(menuType)
-})
-fries.addEventListener('click', () => {
-    let menuType = "fries"
-    getAllMenu(menuType)
-})
-chicken.addEventListener('click', () => {
-    let menuType = "chicken"
-    getAllMenu(menuType)
-})
-hamburger.addEventListener('click', () => {
-    let menuType = "hamburger"
-    getAllMenu(menuType)
-})
-noodle.addEventListener('click', () => {
-    let menuType = "noodle"
-    getAllMenu(menuType)
-})
-sushi.addEventListener('click', () => {
-    let menuType = "sushi"
-    getAllMenu(menuType)
+const navMenu = document.querySelectorAll('.nav-name')
+navMenu.forEach((nav) => {
+    let name = nav.firstElementChild.lastElementChild.textContent;
+    nav.addEventListener('click', () => {
+        let menuType = name
+        console.log(menuType)
+        getNav(menuType)
+    })
 })
 
-async function getAllMenu(type) {
-    let menuType = type;
+function getNav(type) {
+    let typeOfMenu = type;
     const navName = document.querySelectorAll('.nav-name');
     const activeNav = document.querySelector('.nav-name.active')
 
-    const navType = document.getElementById(menuType)
+    const navType = document.getElementById(typeOfMenu)
+    console.log(navType)
     
     navName.forEach(nav => {
         if (nav === activeNav) {
             nav.classList.remove('active')
         } else {navType.classList.add('active')}
     })
+
+    getAllMenu(typeOfMenu)
+}
+
+async function getAllMenu(type) {
+    let menuType = type;
 
     const getData = await fetch('../json/menu.json');
     const res = await getData.json();
@@ -85,19 +65,15 @@ function updateUiMenu(data) {
     menuContent.innerHTML = output;
     
     const menus = document.querySelectorAll('.menu');
-    updateAos(menus)
-}
-
-function getPizza() {
-    // let menus = data.menu
-    // 
+    const options = { rootMargin: "-28px" };
+    updateAos(menus, options)
 }
 
 // Animate On Scroll
-function updateAos(menu) {
+function updateAos(menu, option) {
     const data = menu;
-    const options = { rootMargin: "-28px" };
-    aos(data, options)
+    const opt = option
+    aos(data, opt)
 }
 
 function aos(animate, option) {
@@ -135,11 +111,8 @@ getAllMenu("all");
 
 //         });
 
-const modalCart = document.getElementById('modal-cart');
-
-// document.getElementById('all').addEventListener('click', getAllMenu)
-
 // Cart Button
+const modalCart = document.getElementById('modal-cart');
 document.getElementById('cart').addEventListener('click', () => {
     modalCart.style.display = 'block'
 })
