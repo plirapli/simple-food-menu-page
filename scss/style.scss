@@ -8,10 +8,16 @@
   box-sizing: border-box;
 }
 
+body,
+input,
+textarea,
+button {
+  font-family: "Oswald", sans-serif;
+}
+
 body {
   min-height: 100vh;
   padding: 2.2em;
-  font-family: "Oswald", sans-serif;
   position: relative;
 }
 

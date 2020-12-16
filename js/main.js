@@ -114,6 +114,6 @@ getAllMenu("all");
 // Cart Button
 const modalCart = document.getElementById('modal-cart');
 document.getElementById('cart').addEventListener('click', () => {
-    modalCart.style.display = 'block'
+    modalCart.style.display = "block"
 })
 document.querySelector('.modal-header .close').addEventListener('click', () => modalCart.style.display = 'none')

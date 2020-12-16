@@ -17,12 +17,11 @@
   margin: 12vh auto;
   background-color: $color-gray;
   // position: fixed;
-  // bottom: 50%;
-  // font-family: Arial, Helvetica, sans-serif;
   padding: 24px 32px 32px;
   box-shadow: $black-boxshadow;
   border-radius: 2em;
   z-index: 5;
+  animation: popUpCart 300ms;
 }
 
 .modal-header {
@@ -34,7 +33,6 @@
   // border: 2px solid blue;
 
   span {
-    font-family: "Wolf Sans Regular", arial, sans-serif;
     font-size: 1.5rem;
     cursor: pointer;
     color: $color-darken-gray;
@@ -47,7 +45,6 @@
 }
 
 .modal-content {
-  // padding: 0 18px;
   // border: 2px solid red;
   margin-bottom: 24px;
 
@@ -57,11 +54,6 @@
     width: 100%;
     text-align: left;
   }
-
-  //   th,
-  //   td {
-  //     // border: 2px solid red;
-  //   }
 
   .thead {
     border-bottom: 3px solid $color-1st;
@@ -100,8 +92,8 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      min-width: 300px;
-      //   border: 2px solid red;
+      min-width: 224px;
+      // border: 2px solid red;
 
       span {
         font-size: 0.8rem;
@@ -132,16 +124,36 @@
   // position: relative;
   // border: 2px solid red;
   overflow: hidden;
+  @include flex($justify: space-between);
 
   .price-total {
-    float: right;
     // border: 2px solid red;
-    width: 28%;
+    min-width: 28%;
     @include flex($justify: space-between);
 
     span {
+      margin-right: 24px;
       font-weight: 600;
       text-transform: uppercase;
+    }
+  }
+
+  .btn-cart {
+    border: 2px solid $color-1st;
+    padding: 8px 1em;
+    border-radius: 3em;
+    background-color: $color-1st;
+    color: #fff;
+    text-transform: capitalize;
+    outline: none;
+    cursor: pointer;
+    box-shadow: $black-boxshadow;
+    font-size: 1rem;
+    @include ease();
+
+    &:hover {
+      background-color: #fff;
+      color: $color-1st;
     }
   }
 }

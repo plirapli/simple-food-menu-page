@@ -64,4 +64,13 @@
       }
     }
   }
+
+  .modal-container {
+    min-width: 100%;
+    border-radius: 2em 2em 0 0;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    animation: cartMobile 300ms;
+  }
 }
