@@ -15,7 +15,7 @@ cartRemoveBtn.forEach(removeBtn => {
 // CartQty
 let cartQty = document.querySelectorAll('.cart-qty')
 cartQty.forEach((qty) => {
-    qty.addEventListener('change', qtyChange)
+    qty.addEventListener('change', qtyChangeCart)
 })
 
 function removeCart(e) {
@@ -24,7 +24,7 @@ function removeCart(e) {
     updateCartTotal()
 }
 
-function qtyChange(e) {
+function qtyChangeCart(e) {
     let value = e.target.value
     if (isNaN(value) || value <= 0) {
         value = "1";
@@ -51,11 +51,34 @@ function addCart(addCartBtn) {
     
     addBtn.forEach(add => {
         let menu = add.parentElement
+        let menuQty = menu.querySelector('.menu-qty')
         add.addEventListener('click', () => {
             add.style.display = 'none'
+            menuQty.style.display = 'flex'
+            changeQty(menuQty)
             addCartClicked(menu)
             updateCartTotal()
         })
+    })
+}
+
+function changeQty(menuQty) {
+    const min = menuQty.querySelector('.qty-min')
+    const plus = menuQty.querySelector('.qty-plus')
+    let qtyValue = parseInt(menuQty.querySelector('.input-qty').value)
+
+    min.addEventListener('click', () => {
+        if (qtyValue <= 1) {
+            return qtyValue = 1
+        } else {
+            qtyValue -= 1
+            menuQty.querySelector('.input-qty').value = qtyValue
+        }
+    })
+
+    plus.addEventListener('click', () => {
+        qtyValue += 1
+        menuQty.querySelector('.input-qty').value = qtyValue
     })
 }
 
@@ -71,8 +94,8 @@ function updateUiAddToCart(name, price, imgSrc) {
     const cartTable = document.querySelector('.cart-items')
     const newRow = document.createElement('tr')
     newRow.classList.add('cart-row')
+    let productName = document.querySelectorAll('.product-name p')
 
-    productName = document.querySelectorAll('.product-name p')
     let updateUiRow = 
         `<td class="td-name">
             <img class="img-product" src="${imgSrc}" alt="">
@@ -87,7 +110,7 @@ function updateUiAddToCart(name, price, imgSrc) {
     newRow.innerHTML = updateUiRow;
     cartTable.append(newRow)
 
-    document.querySelector('.cart-qty').addEventListener('change', qtyChange)
+    document.querySelector('.cart-qty').addEventListener('change', qtyChangeCart)
     document.querySelector('.td-remove i').addEventListener('click', removeCart)
 }
 
@@ -149,6 +172,11 @@ function updateUiMenu(data) {
             <p class="menu-price">Rp${m.price}</p>
             <div class="add-cart">
                 <i class="fas fa-plus"></i>
+            </div>
+            <div class="menu-qty">
+                <div class="qty-change qty-min">-</div>
+                <input type="number" class="input-qty" readonly value=1 min=1>
+                <div class="qty-change qty-plus">+</div>
             </div>
         </div>`
     })

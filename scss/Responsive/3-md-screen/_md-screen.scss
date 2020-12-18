@@ -49,12 +49,29 @@
         margin-top: 0.4em;
       }
 
-      .add-chart {
+      .add-cart {
         position: absolute;
         border-radius: 0;
         width: 100%;
         transform: translateY(0);
         clip-path: circle(100%);
+      }
+
+      .menu-qty {
+        transform: translateY(0);
+        width: 100%;
+        justify-content: center;
+
+        .qty-min {
+          // border-radius: 0;
+        }
+        .qty-plus {
+          // border-radius: 0;
+        }
+
+        .input-qty {
+          // max-width: 72px;
+        }
       }
 
       &:hover {
