@@ -60,7 +60,7 @@
     font-weight: 600;
   }
 
-  .tbody {
+  .cart-row {
     border-bottom: 2px solid rgba($color-darken-gray, 0.3);
   }
 
@@ -108,9 +108,12 @@
     &.td-remove {
       i {
         text-align: center;
-        color: $color-darken-gray;
+        color: #fff;
         cursor: pointer;
         @include ease();
+        background-color: lighten($color: $color-3rd, $amount: 40);
+        padding: 8px 12px;
+        border-radius: 8px;
 
         &:hover {
           color: $color-3rd;
