@@ -364,18 +364,18 @@ input[type="number"] {
       outline: none;
       animation: popUpCart 300ms forwards;
     }
-  }
 
-  &:hover {
-    box-shadow: $black-boxshadow-hover;
+    &:hover {
+      box-shadow: $black-boxshadow-hover;
 
-    .menu-img {
-      transform: rotate(20deg);
-    }
+      .menu-img {
+        transform: rotate(20deg);
+      }
 
-    .add-cart {
-      clip-path: circle(100%);
-      // opacity: 1;
+      .add-cart {
+        clip-path: circle(100%);
+        // opacity: 1;
+      }
     }
   }
 }

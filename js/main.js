@@ -5,25 +5,37 @@ document.querySelector('.menu-bar').addEventListener('click', () => {
     document.querySelectorAll('.menu-btn').forEach((btn) => btn.classList.toggle('close'))
 })
 
-// Shopping Cart
-// Remove Button
-let cartRemoveBtn = document.querySelectorAll('.td-remove i');
-cartRemoveBtn.forEach(removeBtn => {
-    removeBtn.addEventListener('click', removeCart)
-})
-
 // CartQty
 let cartQty = document.querySelectorAll('.cart-qty')
 cartQty.forEach((qty) => {
     qty.addEventListener('change', qtyChangeCart)
 })
 
+// Remove Cart
+function removingToCart(menuQty) {
+    let menuQtyRemove = menuQty
+    let addCartBtnShow = menuQty.parentElement.children[3]
+    let cartRemoveBtn = document.querySelectorAll('.td-remove i');
+    cartRemoveBtn.forEach(removeBtn => removeBtn.addEventListener('click', (e) => {
+        menuQtyRemove.style.display = 'none'
+        addCartBtnShow.style.display = 'block'
+        removeCart(e)
+    }))
+}
+
 function removeCart(e) {
     let remove = e.target
     remove.parentElement.parentElement.remove();
     updateCartTotal()
+    // removeCartMenu()
 }
 
+// RemoveCartFROM Menu
+// function removeCartMenu() {
+
+// }
+
+// Change Qty on Cart
 function qtyChangeCart(e) {
     let value = e.target.value
     if (isNaN(value) || value <= 0) {
@@ -46,6 +58,7 @@ function updateCartTotal() {
     document.querySelector('.price-total').lastChild.textContent = "Rp" + total;
 }
 
+// Add to Cart Button
 function addCart(addCartBtn) {
     const addBtn = addCartBtn;
     
@@ -56,12 +69,13 @@ function addCart(addCartBtn) {
             add.style.display = 'none'
             menuQty.style.display = 'flex'
             changeQty(menuQty)
-            addCartClicked(menu)
+            addCartClicked(menu, menuQty)
             updateCartTotal()
         })
     })
 }
 
+// Change Qty on Menu
 function changeQty(menuQty) {
     const min = menuQty.querySelector('.qty-min')
     const plus = menuQty.querySelector('.qty-plus')
@@ -82,15 +96,14 @@ function changeQty(menuQty) {
     })
 }
 
-function addCartClicked(menu) {
+function addCartClicked(menu, menuQty) {
     let name = menu.children[1].textContent
     let price = parseInt(menu.children[2].textContent.replace('Rp', ''))
     let imgSrc = menu.children[0].children[0].src
-
-    updateUiAddToCart(name, price, imgSrc)
+    updateUiAddToCart(name, price, imgSrc, menuQty)
 }
 
-function updateUiAddToCart(name, price, imgSrc) {
+function updateUiAddToCart(name, price, imgSrc, menuQty) {
     const cartTable = document.querySelector('.cart-items')
     const newRow = document.createElement('tr')
     newRow.classList.add('cart-row')
@@ -104,14 +117,14 @@ function updateUiAddToCart(name, price, imgSrc) {
                 <span>Hamburger</span>
             </div>
         </td>
-        <td class="td-qty"><input type="number" class="cart-qty" value=1 min=1></td>
+        <td class="td-qty"><input readonly type="number" class="cart-qty" value=1 min=1></td>
         <td class="td-price">Rp${price}</td>
         <td class="td-remove"><i class="fas fa-times"></i></td>`
     newRow.innerHTML = updateUiRow;
     cartTable.append(newRow)
 
     document.querySelector('.cart-qty').addEventListener('change', qtyChangeCart)
-    document.querySelector('.td-remove i').addEventListener('click', removeCart)
+    removingToCart(menuQty)
 }
 
 // Nav Menu
