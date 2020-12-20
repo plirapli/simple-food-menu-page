@@ -5,44 +5,52 @@ document.querySelector('.menu-bar').addEventListener('click', () => {
     document.querySelectorAll('.menu-btn').forEach((btn) => btn.classList.toggle('close'))
 })
 
-// CartQty
-let cartQty = document.querySelectorAll('.cart-qty')
-cartQty.forEach((qty) => {
-    qty.addEventListener('change', qtyChangeCart)
-})
+// CART
+// Update Notification Badge on Cart
+function updateCartBadge() {
+    let carts = document.querySelectorAll('tr.cart-row')
+    let cartBadge = document.querySelector('.cart-badge')
+    if(carts.length >= 1) {
+        cartBadge.style.display = 'inline'
+        cartBadge.innerHTML = carts.length
+    } else {
+        cartBadge.style.display = 'none'
+    }
+}
 
 // Remove Cart
-function removingToCart(menuQty) {
-    let menuQtyRemove = menuQty
+function removingToCart(menuQty, id) {
+    let menuQtyResetValue = menuQty.children[1]
     let addCartBtnShow = menuQty.parentElement.children[3]
     let cartRemoveBtn = document.querySelectorAll('.td-remove i');
     cartRemoveBtn.forEach(removeBtn => removeBtn.addEventListener('click', (e) => {
-        menuQtyRemove.style.display = 'none'
-        addCartBtnShow.style.display = 'block'
-        removeCart(e)
+        let cartId = e.target.parentElement.parentElement.dataset.id
+        if (id == cartId) {
+            menuQty.style.display = 'none'
+            menuQtyResetValue.value = 1
+            addCartBtnShow.style.display = 'block'
+            removeCartUi(e)
+        }
     }))
 }
 
-function removeCart(e) {
+function removeCartUi(e) {
     let remove = e.target
     remove.parentElement.parentElement.remove();
+    updateCartBadge()
     updateCartTotal()
-    // removeCartMenu()
 }
 
-// RemoveCartFROM Menu
-// function removeCartMenu() {
-
-// }
-
 // Change Qty on Cart
-function qtyChangeCart(e) {
-    let value = e.target.value
-    if (isNaN(value) || value <= 0) {
-        value = "1";
-    }
-    console.log(value)
-    updateCartTotal()
+function qtyChangeCart(qty, id) {
+    let cartQty = document.querySelectorAll('.cart-qty')
+    cartQty.forEach(cart => {
+        let cartQtyId = cart.parentElement.parentElement.dataset.id
+        if (cartQtyId == id) {
+            cart.value = qty
+            updateCartTotal()
+        }
+    })
 }
 
 function updateCartTotal() {
@@ -61,22 +69,23 @@ function updateCartTotal() {
 // Add to Cart Button
 function addCart(addCartBtn) {
     const addBtn = addCartBtn;
-    
     addBtn.forEach(add => {
         let menu = add.parentElement
+        let id = menu.dataset.id
         let menuQty = menu.querySelector('.menu-qty')
+
         add.addEventListener('click', () => {
             add.style.display = 'none'
             menuQty.style.display = 'flex'
-            changeQty(menuQty)
-            addCartClicked(menu, menuQty)
+            changeQty(menuQty, id)
+            addCartClicked(menu, menuQty, id)
             updateCartTotal()
         })
     })
 }
 
 // Change Qty on Menu
-function changeQty(menuQty) {
+function changeQty(menuQty, id) {
     const min = menuQty.querySelector('.qty-min')
     const plus = menuQty.querySelector('.qty-plus')
     let qtyValue = parseInt(menuQty.querySelector('.input-qty').value)
@@ -88,27 +97,29 @@ function changeQty(menuQty) {
             qtyValue -= 1
             menuQty.querySelector('.input-qty').value = qtyValue
         }
+        qtyChangeCart(qtyValue, id)
     })
 
     plus.addEventListener('click', () => {
         qtyValue += 1
         menuQty.querySelector('.input-qty').value = qtyValue
+        qtyChangeCart(qtyValue, id)
     })
 }
 
-function addCartClicked(menu, menuQty) {
+function addCartClicked(menu, menuQty, id) {
     let name = menu.children[1].textContent
     let price = parseInt(menu.children[2].textContent.replace('Rp', ''))
     let imgSrc = menu.children[0].children[0].src
-    updateUiAddToCart(name, price, imgSrc, menuQty)
+    updateUiAddToCart(name, price, imgSrc, menuQty, id)
 }
 
-function updateUiAddToCart(name, price, imgSrc, menuQty) {
+function updateUiAddToCart(name, price, imgSrc, menuQty, id) {
     const cartTable = document.querySelector('.cart-items')
     const newRow = document.createElement('tr')
     newRow.classList.add('cart-row')
+    newRow.dataset.id = id
     let productName = document.querySelectorAll('.product-name p')
-
     let updateUiRow = 
         `<td class="td-name">
             <img class="img-product" src="${imgSrc}" alt="">
@@ -123,8 +134,8 @@ function updateUiAddToCart(name, price, imgSrc, menuQty) {
     newRow.innerHTML = updateUiRow;
     cartTable.append(newRow)
 
-    document.querySelector('.cart-qty').addEventListener('change', qtyChangeCart)
-    removingToCart(menuQty)
+    updateCartBadge()
+    removingToCart(menuQty, id)
 }
 
 // Nav Menu
@@ -133,7 +144,6 @@ navMenu.forEach((nav) => {
     let name = nav.firstElementChild.lastElementChild.textContent;
     nav.addEventListener('click', () => {
         let menuType = name
-        console.log(menuType)
         getNav(menuType)
     })
 })
@@ -144,7 +154,6 @@ function getNav(type) {
     const activeNav = document.querySelector('.nav-name.active')
 
     const navType = document.getElementById(typeOfMenu)
-    console.log(navType)
     
     navName.forEach(nav => {
         if (nav === activeNav) {
@@ -177,7 +186,7 @@ function updateUiMenu(data) {
     
     data.forEach(m => {
         output += 
-        `<div class="menu menu-${m.id}">
+        `<div class="menu" data-id=${m.id}>
             <div class="menu-img">
                 <img src="${m.img}" alt="">
             </div>

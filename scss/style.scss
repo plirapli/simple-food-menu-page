@@ -201,8 +201,8 @@ input[type="number"] {
         font-size: 1.2em;
       }
 
-      &::after {
-        content: "2";
+      .cart-badge {
+        display: none;
         color: white;
         text-align: center;
         font-size: 0.6rem;
