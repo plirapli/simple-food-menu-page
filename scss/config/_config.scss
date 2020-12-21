@@ -16,17 +16,6 @@ $black-boxshadow-hover: 2px 2px 10px -3px rgba(
     $alpha: 0.4,
   );
 
-@keyframes anim1 {
-  from {
-    transform: translateY(-10%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
 @keyframes popUpCart {
   from {
     opacity: 0;
@@ -97,14 +86,9 @@ $black-boxshadow-hover: 2px 2px 10px -3px rgba(
 
     i {
       padding: 0px;
-      cursor: pointer;
       color: $color-darken-gray;
       // border: 2px solid red;
       @include ease();
-
-      &:hover {
-        color: black;
-      }
     }
 
     &:hover {

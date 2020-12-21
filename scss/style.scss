@@ -202,7 +202,8 @@ input[type="number"] {
       }
 
       .cart-badge {
-        display: none;
+        // display: none;
+        clip-path: circle(0);
         color: white;
         text-align: center;
         font-size: 0.6rem;
@@ -215,6 +216,11 @@ input[type="number"] {
         right: 0;
         background-color: $color-2nd;
         transform: translate(30%, 30%);
+        @include ease();
+
+        &.show {
+          clip-path: circle(100%);
+        }
       }
 
       &:hover {
@@ -278,11 +284,13 @@ input[type="number"] {
     text-align: center;
     box-shadow: $black-boxshadow;
     opacity: 0;
+    transform: translateY(-10%);
     @include ease();
 
-    // &.animate {
-    //   // opacity: 1;
-    // }
+    &.show-menu {
+      transform: translateY(0);
+      opacity: 1;
+    }
 
     .menu-img {
       width: 72px;
@@ -301,6 +309,7 @@ input[type="number"] {
       margin-top: 0.8em;
       font-weight: 500;
       font-size: 1rem;
+      text-transform: capitalize;
     }
 
     .menu-price {
@@ -333,6 +342,7 @@ input[type="number"] {
       transform: translateY(50%);
       display: none;
       justify-content: center;
+      width: 100%;
     }
 
     .qty-change {
@@ -345,6 +355,7 @@ input[type="number"] {
       box-shadow: $black-boxshadow;
       padding: 4px 12px;
       animation: popUpCart 300ms forwards;
+      user-select: none;
 
       &.qty-min {
         border-radius: 1rem 0 0 1rem;
@@ -358,18 +369,19 @@ input[type="number"] {
     .input-qty {
       font-weight: 600;
       text-align: center;
-      max-width: 32px;
+      width: 100%;
       border: 2px solid $color-1st;
       border-radius: 0;
       outline: none;
       animation: popUpCart 300ms forwards;
+      box-sizing: border-box;
     }
 
     &:hover {
       box-shadow: $black-boxshadow-hover;
 
       .menu-img {
-        transform: rotate(20deg);
+        transform: scale(1.1);
       }
 
       .add-cart {

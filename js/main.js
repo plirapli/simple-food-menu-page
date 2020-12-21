@@ -11,10 +11,10 @@ function updateCartBadge() {
     let carts = document.querySelectorAll('tr.cart-row')
     let cartBadge = document.querySelector('.cart-badge')
     if(carts.length >= 1) {
-        cartBadge.style.display = 'inline'
+        cartBadge.classList.add('show')
         cartBadge.innerHTML = carts.length
     } else {
-        cartBadge.style.display = 'none'
+        cartBadge.classList.remove('show')
     }
 }
 
@@ -56,7 +56,6 @@ function qtyChangeCart(qty, id) {
 function updateCartTotal() {
     let cartItems = document.querySelector('.cart-items')
     let cartRows = cartItems.querySelectorAll('.cart-row')
-
     let total = 0
     cartRows.forEach(row => {
         let price = parseInt(row.querySelector('.td-price').textContent.replace('Rp', ''))
@@ -66,25 +65,26 @@ function updateCartTotal() {
     document.querySelector('.price-total').lastChild.textContent = "Rp" + total;
 }
 
-// Add to Cart Button
+// 1. Add to Cart Button
 function addCart(addCartBtn) {
     const addBtn = addCartBtn;
     addBtn.forEach(add => {
         let menu = add.parentElement
         let id = menu.dataset.id
+        let type = menu.dataset.type
         let menuQty = menu.querySelector('.menu-qty')
 
         add.addEventListener('click', () => {
             add.style.display = 'none'
             menuQty.style.display = 'flex'
             changeQty(menuQty, id)
-            addCartClicked(menu, menuQty, id)
+            addCartClicked(menu, menuQty, id, type)
             updateCartTotal()
         })
     })
 }
 
-// Change Qty on Menu
+// 2. Change Qty on Menu
 function changeQty(menuQty, id) {
     const min = menuQty.querySelector('.qty-min')
     const plus = menuQty.querySelector('.qty-plus')
@@ -107,14 +107,16 @@ function changeQty(menuQty, id) {
     })
 }
 
-function addCartClicked(menu, menuQty, id) {
+// 3.
+function addCartClicked(menu, menuQty, id, type) {
     let name = menu.children[1].textContent
     let price = parseInt(menu.children[2].textContent.replace('Rp', ''))
     let imgSrc = menu.children[0].children[0].src
-    updateUiAddToCart(name, price, imgSrc, menuQty, id)
+
+    updateUiAddToCart(name, price, imgSrc, menuQty, id, type)
 }
 
-function updateUiAddToCart(name, price, imgSrc, menuQty, id) {
+function updateUiAddToCart(name, price, imgSrc, menuQty, id, type) {
     const cartTable = document.querySelector('.cart-items')
     const newRow = document.createElement('tr')
     newRow.classList.add('cart-row')
@@ -125,7 +127,7 @@ function updateUiAddToCart(name, price, imgSrc, menuQty, id) {
             <img class="img-product" src="${imgSrc}" alt="">
             <div class="product-name">
                 <p>${name}</p>
-                <span>Hamburger</span>
+                <span>${type}</span>
             </div>
         </td>
         <td class="td-qty"><input readonly type="number" class="cart-qty" value=1 min=1></td>
@@ -186,7 +188,7 @@ function updateUiMenu(data) {
     
     data.forEach(m => {
         output += 
-        `<div class="menu" data-id=${m.id}>
+        `<div class="menu" data-id=${m.id} data-type=${m.type}>
             <div class="menu-img">
                 <img src="${m.img}" alt="">
             </div>
@@ -203,12 +205,7 @@ function updateUiMenu(data) {
         </div>`
     })
     menuContent.innerHTML = output;
-
-    // let menu = document.querySelectorAll('.menu')
-    // let menuName = document.querySelectorAll('.menu-name')
-    // let menuPrice = document.querySelectorAll('.menu-price')
     let addCartBtn = document.querySelectorAll('.add-cart')
-    // let menuImg = document.querySelectorAll('.menu-img img')
 
     const menus = document.querySelectorAll('.menu');
     const options = { rootMargin: "-28px" };
@@ -227,10 +224,8 @@ function aos(animate, option) {
     observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if(entry.intersectionRatio > 0) {
-                entry.target.style.animation = `anim1 0.8s forwards ease`;
+                entry.target.classList.add('show-menu');
                 observer.unobserve(entry.target)
-            } else {
-                entry.target.style.animation = 'none'
             }
         })
     }, option)
@@ -240,23 +235,21 @@ function aos(animate, option) {
 
 getAllMenu("all");
 
-//         // Search Filter
-//         search.addEventListener('input', () => {
-//             let value = document.getElementById('search').value.toUpperCase()
-//             console.log(value)
-//             let menu = document.querySelectorAll('.menu')
+// Search Filter
+document.querySelector('.search-bar')
+search.addEventListener('input', () => {
+    let value = document.getElementById('search').value.toUpperCase()
+    let menus = document.querySelectorAll('.menu')
 
-//             for (let i = 0; i < menu.length; i++) {
-//                 let name = menu[i].getElementsByClassName('menu-name')[0]
-
-//                 if (name.innerHTML.toUpperCase().indexOf(value) > -1) {
-//                     menu[i].style.display = ''
-//                 } else {
-//                     menu[i].style.display = 'none'
-//                 }
-//             }
-
-//         });
+    menus.forEach((menu) => {
+        let name = menu.querySelector('.menu-name')
+        if (name.innerHTML.toUpperCase().indexOf(value) > -1) {
+            menu.style.display = ''
+        } else {
+            menu.style.display = 'none'
+        }
+    })
+});
 
 // Cart Button
 const modalCart = document.getElementById('modal-cart');

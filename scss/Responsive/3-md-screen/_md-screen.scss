@@ -62,9 +62,10 @@
         width: 100%;
         justify-content: center;
 
-        // .qty-min {
-        //   // border-radius: 0;
-        // }
+        .qty-change {
+          border-radius: 0;
+          padding: 4px 20px;
+        }
         // .qty-plus {
         //   // border-radius: 0;
         // }
@@ -87,7 +88,14 @@
     border-radius: 2em 2em 0 0;
     margin: 0;
     position: absolute;
+    padding: 1em 1.2em 1.2em;
     bottom: 0;
     animation: cartMobile 300ms;
+
+    table {
+      td {
+        padding: 12px;
+      }
+    }
   }
 }

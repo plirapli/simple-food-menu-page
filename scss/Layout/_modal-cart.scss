@@ -13,6 +13,7 @@
 
 .modal-container {
   max-width: 660px;
+  max-height: 70vh;
   // border: 2px solid red;
   margin: 12vh auto;
   background-color: $color-gray;
@@ -22,6 +23,12 @@
   border-radius: 2em;
   z-index: 5;
   animation: popUpCart 300ms;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
 }
 
 .modal-header {
@@ -86,6 +93,7 @@
     // display: flex;
     font-size: 1rem;
     font-weight: 600;
+    text-transform: capitalize;
 
     &.td-name {
       padding-left: 0;
@@ -103,9 +111,20 @@
 
     &.td-qty {
       text-align: center;
+
+      input {
+        text-align: center;
+        outline: none;
+        border: 2px solid $color-1st;
+        font-size: 1em;
+        max-width: 32px;
+        background-color: $color-gray;
+        cursor: auto;
+      }
     }
 
     &.td-remove {
+      padding: 16px 0;
       i {
         text-align: center;
         color: #fff;
