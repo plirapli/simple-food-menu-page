@@ -1,153 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Simple Food Menu Page">
-    <meta name="company" content="Pizzasta">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Simple Food Menu Page" />
+    <meta name="company" content="Pizzasta" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <title>Pizzasta</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="main-container">
-        <!-- NAV-PANEL -->
-        <div class="nav">      
-            <h1 class="nav-brand">Pizz<span>asta</span></h1>
-            <ul class="nav-menu">
-                <li class="nav-name active" id="all">
-                    <a href="#">
-                        <i class="pzs-all"></i>
-                        <p>all</p>
-                    </a>
-                </li>
-                <li class="nav-name" id="pizza">
-                    <a href="#">
-                        <i class="pzs-pizza"></i>
-                        <p>pizza</p>
-                    </a>
-                </li>
-                <li class="nav-name" id="fries">
-                    <a href="#">
-                        <i class="pzs-french-fries"></i>
-                        <p>fries</p>
-                    </a>
-                </li>
-                <li class="nav-name" id="chicken">
-                    <a href="#">
-                        <i class="pzs-chicken"></i>
-                        <p>chicken</p>
-                    </a>
-                </li>
-                <li class="nav-name" id="hamburger">
-                    <a href="#">
-                        <i class="pzs-hamburger"></i>
-                        <p>hamburger</p>
-                    </a>
-                </li>
-                <li class="nav-name" id="noodle">
-                    <a href="#">
-                        <i class="pzs-noodles"></i>
-                        <p>noodle</p>
-                    </a>
-                </li>
-                <li class="nav-name" id="sushi">
-                    <a href="#">
-                        <i class="pzs-sushi"></i>
-                        <p>sushi</p>
-                    </a>
-                </li>
-            </ul>
+      <!-- NAV-PANEL -->
+      <nav class="nav">
+        <h1 class="nav-brand">Pizz<span>asta</span></h1>
+        <ul class="nav-menu">
+          <li class="nav-name active" id="all">
+            <a href="#">
+              <i class="pzs-all"></i>
+              <p>all</p>
+            </a>
+          </li>
+          <li class="nav-name" id="pizza">
+            <a href="#">
+              <i class="pzs-pizza"></i>
+              <p>pizza</p>
+            </a>
+          </li>
+          <li class="nav-name" id="fries">
+            <a href="#">
+              <i class="pzs-french-fries"></i>
+              <p>fries</p>
+            </a>
+          </li>
+          <li class="nav-name" id="chicken">
+            <a href="#">
+              <i class="pzs-chicken"></i>
+              <p>chicken</p>
+            </a>
+          </li>
+          <li class="nav-name" id="hamburger">
+            <a href="#">
+              <i class="pzs-hamburger"></i>
+              <p>hamburger</p>
+            </a>
+          </li>
+          <li class="nav-name" id="noodle">
+            <a href="#">
+              <i class="pzs-noodles"></i>
+              <p>noodle</p>
+            </a>
+          </li>
+          <li class="nav-name" id="sushi">
+            <a href="#">
+              <i class="pzs-sushi"></i>
+              <p>sushi</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- KANAN -->
+      <div class="container">
+        <!-- HEADER TOP -->
+        <header class="header-top">
+          <div class="menu-bar">
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+            <div class="menu-btn"></div>
+          </div>
+          <div class="search">
+            <input
+              id="search"
+              type="text"
+              class="search-bar"
+              placeholder="Search"
+            />
+            <i class="fas fa-search btn-search"></i>
+          </div>
+          <div class="users">
+            <div class="user">
+              <div class="img-profile"></div>
+              <p class="user-name">John Doe</p>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div id="cart" class="cart">
+              <i class="pzs-cart"></i>
+              <span class="cart-badge"></span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Jumbroton -->
+        <div class="header-main">
+          <div class="title">
+            <h1 class="header-brand">Pizz<span>asta</span></h1>
+            <div class="tagline">
+              <h1 class="header-lg"><span>Delicious</span></h1>
+              <h1 class="header-lg">Fried Chicken</h1>
+            </div>
+          </div>
+          <div class="header-img"></div>
         </div>
 
-        <!-- KANAN -->
-        <div class="container">
-            <!-- HEADER TOP -->
-            <div class="header-top">
-                <div class="menu-bar">
-                    <div class="menu-btn"></div>
-                    <div class="menu-btn"></div>
-                    <div class="menu-btn"></div>
-                </div>
-                <div class="search">
-                    <input id="search" type="text" class="search-bar" placeholder="Search">
-                    <i class="fas fa-search btn-search"></i>
-                </div>
-                <div class="users">
-                    <div class="user">
-                        <div class="img-profile"></div>
-                        <p class="user-name">John Doe</p>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div id="cart" class="cart">
-                        <i class="pzs-cart"></i>
-                        <span class="cart-badge"></span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- HEADER MAIN -->
-            <div class="header-main">
-                <div class="title">
-                    <h1 class="header-brand">Pizz<span>asta</span></h1>
-                    <div class="tagline">
-                        <h1 class="header-lg"><span>Delicious</span></h1>
-                        <h1 class="header-lg">Fried Chicken</h1>
-                    </div>
-                </div>
-                <div class="header-img"></div>
-            </div>
-
-            <!-- Filter Menu -->
-            <div class="menu-search">
-                <div class="search">
-                    <input type="text" class="search-bar" placeholder="Search">
-                    <i class="fas fa-search btn-search"></i>
-                </div>
-            </div>
-
-            <!-- MAIN CONTENT -->
-            <div class="content" id="menu-content"></div>
-
-            <!-- Load More -->
-            <div id="loadMore" class="menu-more">
-                <div class="load-more">more</div>
-            </div>
+        <!-- Filter Menu -->
+        <div class="menu-search">
+          <div class="search">
+            <input type="text" class="search-bar" placeholder="Search" />
+            <i class="fas fa-search btn-search"></i>
+          </div>
         </div>
+
+        <!-- MAIN CONTENT -->
+        <main class="content" id="menu-content"></main>
+
+        <!-- Load More -->
+        <div id="loadMore" class="menu-more">
+          <div class="load-more">more</div>
+        </div>
+      </div>
     </div>
 
     <div id="modal-cart" class="modal">
-        <div class="modal-container">
-            <div class="modal-header">
-                <h1>Cart</h1>
-                <span class="close"><i class="fas fa-times"></i></span>
-            </div>
-            <div class="modal-content">
-                <table>
-                    <thead>
-                        <tr class="thead">
-                          <th>Name</th>
-                          <th>Qty</th>
-                          <th>Price</th>
-                          <th></th>
-                        </tr>
-                    </thead>
-                    <!-- The Items -->
-                    <tbody class="cart-items"></tbody>
-                  </table>
-            </div>
-            <div class="modal-footer">
-              <div class="price-total">
-                  <span>Total: </span>
-                  Rp0
-              </div>
-              <button class="btn-cart" type="submit">continue</button>
-            </div>
+      <div class="modal-container">
+        <div class="modal-header">
+          <h1>Cart</h1>
+          <span class="close"><i class="fas fa-times"></i></span>
+        </div>
+        <div class="modal-content">
+          <table>
+            <thead>
+              <tr class="thead">
+                <th>Name</th>
+                <th>Qty</th>
+                <th>Price</th>
+                <th></th>
+              </tr>
+            </thead>
+            <!-- The Items -->
+            <tbody class="cart-items"></tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <div class="price-total">
+            <span>Total: </span>
+            Rp0
+          </div>
+          <button class="btn-cart" type="submit">continue</button>
         </div>
       </div>
+    </div>
 
-    <script src="https://kit.fontawesome.com/a0adf08957.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/a0adf08957.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
