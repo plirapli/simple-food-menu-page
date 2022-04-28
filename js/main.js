@@ -259,20 +259,6 @@ search.addEventListener('input', () => {
   });
 });
 
-search2.addEventListener('input', () => {
-  let value = search2.value.toUpperCase();
-  let menus = document.querySelectorAll('.menu');
-
-  menus.forEach((menu) => {
-    let name = menu.querySelector('.menu-name');
-    if (name.innerHTML.toUpperCase().indexOf(value) > -1) {
-      menu.style.display = '';
-    } else {
-      menu.style.display = 'none';
-    }
-  });
-});
-
 // Cart Button
 const modalCart = document.getElementById('modal-cart');
 document.getElementById('cart').addEventListener('click', () => {

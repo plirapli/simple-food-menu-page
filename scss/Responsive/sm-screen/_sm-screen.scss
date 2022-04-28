@@ -1,0 +1,83 @@
+@include media-768 {
+  body {
+    padding: 1rem;
+  }
+
+  @import "../../Layout/nav-menu-mobile";
+
+  .container {
+    margin-left: 0;
+  }
+
+  .header {
+    grid-template-columns: 3rem 1fr;
+    grid-template-rows: 3rem 3fr 3rem;
+    grid-template-areas:
+      "menu-bar user"
+      "banner banner"
+      "search-bar search-bar"
+  }
+
+  .banner {
+    margin-top: 1.25rem;
+    //   border: 2px solid red;
+    background-color: $color-1st;
+    padding: 5rem 1rem;
+    width: 100%;
+    border-radius: 2rem;
+    @include flex();
+
+    &-title {
+      font-size: 0.75rem;
+      text-align: center;
+      // border: 2px solid red;
+      line-height: normal;
+
+      &-brand {
+        margin-top: -1.25rem;
+        //   border: 2px solid red;
+        display: block;
+        font-size: 3rem;
+      }
+
+      .tagline {
+        // border: 2px solid red;
+        @include flex();
+        gap: 0.5rem;
+        
+        h1 {
+          // border: 2px solid red;
+          color: white;
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+
+    &-img {
+      display: none;
+    }
+  }
+
+  .users {
+    .user {
+      .user-name {
+        display: none;
+      }
+    }
+
+    .cart {
+      border-radius: 999px;
+
+      i {
+        font-size: 1.25rem;
+      }
+
+      &::after {
+        font-size: 0.5rem;
+        padding: 0.125rem 0.375rem;
+      }
+    }
+  }
+}

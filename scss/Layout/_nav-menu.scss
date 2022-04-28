@@ -1,81 +1,66 @@
+// Navigation Menu
 .menu-bar {
-  width: 28px;
-  // height: 100%;
-  // border: 2px solid red;
-  cursor: pointer;
-  z-index: 3;
-  @include flex(column, center, flex-start);
+  display: none;
+}
 
-  .menu-btn {
-    width: 80%;
-    height: 3px;
-    border-radius: 2em;
-    margin-bottom: 6px;
-    background-color: $color-1st;
-    @include ease();
-
-    &:nth-child(3) {
-      margin-bottom: 0;
-    }
-    &:nth-child(2) {
-      width: 100%;
-    }
-
-    &.close {
-      width: 100%;
-      background-color: white;
-
-      &:nth-child(2) {
-        width: 0%;
-        background-color: $color-1st;
-      }
-
-      &:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-      }
-
-      &:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-      }
-    }
-  }
+.img-product {
+  width: 4.5rem;
+  height: 4.5rem;
+  background-size: cover;
+  border-radius: 0.75rem;
+  box-shadow: $black-boxshadow;
 }
 
 .nav {
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  height: 100%;
-  border-radius: 0;
-  z-index: 2;
-  gap: 2em;
-  padding: 1.5em 0;
-  min-width: 240px;
-  transform: translateX(-100%);
+  @include flex(column, stretch);
+  padding: 2rem;
+  background-color: $color-1st;
+  border-radius: 2rem;
+  box-shadow: $black-boxshadow;
+  min-height: 100%;
   @include ease();
-
-  &.show {
-    transform: translateX(0);
-  }
+  // border: 2px solid red;
 
   &-brand {
     font-size: 2rem;
-    opacity: 0;
+    color: $color-2nd;
+    text-align: center;
+
+    span {
+      color: $color-3rd;
+    }
   }
 
   &-menu {
-    // border: 2px solid red;
-    width: 100%;
+    margin-top: 3rem;
+    list-style: none;
+    color: white;
+    // border: 2px solid white;
 
     li {
-      // margin-bottom: ;
-      border-radius: 0;
+      margin-bottom: 0.5rem;
+      border-radius: 2rem;
 
       a {
-        @include flex(row, stretch);
-        gap: 1em;
-        padding: 1em 1.5em;
+        @include flex($justify: stretch);
+        text-decoration: none;
+        padding: 0.75rem 3rem 0.75rem 1.5rem;
+        color: white;
+        text-transform: capitalize;
+
+        i { font-size: 1.5rem; }
+        p { margin-left: 1rem; }
+      }
+
+      &.active {
+        background-color: $color-2nd;
+
+        &:hover {
+          background-color: $color-2nd;
+        }
+      }
+      &:hover {
+        background-color: rgba($color: $color-2nd, $alpha: 0.2);
       }
     }
   }

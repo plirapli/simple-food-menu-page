@@ -66,13 +66,14 @@
 
       <!-- KANAN -->
       <div class="container">
-        <!-- HEADER TOP -->
-        <header class="header-top">
+        <!-- HEADER -->
+        <header class="header">
           <div class="menu-bar">
             <div class="menu-btn"></div>
             <div class="menu-btn"></div>
             <div class="menu-btn"></div>
           </div>
+
           <div class="search">
             <input
               id="search"
@@ -93,38 +94,26 @@
               <span class="cart-badge"></span>
             </div>
           </div>
+
+          <!-- Banner -->
+          <div class="banner">
+            <div class="banner-title">
+              <h1 class="banner-title-brand">Pizz<span>asta</span></h1>
+              <div class="tagline">
+                <h1 class="header-lg"><span>Delicious</span></h1>
+                <h1 class="header-lg">Fried Chicken</h1>
+              </div>
+            </div>
+            <div class="banner-img"></div>
+          </div>
         </header>
 
-        <!-- Jumbroton -->
-        <div class="header-main">
-          <div class="title">
-            <h1 class="header-brand">Pizz<span>asta</span></h1>
-            <div class="tagline">
-              <h1 class="header-lg"><span>Delicious</span></h1>
-              <h1 class="header-lg">Fried Chicken</h1>
-            </div>
-          </div>
-          <div class="header-img"></div>
-        </div>
-
-        <!-- Filter Menu -->
-        <div class="menu-search">
-          <div class="search">
-            <input type="text" class="search-bar" placeholder="Search" />
-            <i class="fas fa-search btn-search"></i>
-          </div>
-        </div>
-
-        <!-- MAIN CONTENT -->
-        <main class="content" id="menu-content"></main>
-
-        <!-- Load More -->
-        <div id="loadMore" class="menu-more">
-          <div class="load-more">more</div>
-        </div>
+        <!-- MENU CONTENT -->
+        <main class="main-content content" id="menu-content"></main>
       </div>
     </div>
 
+    <!-- Modal -->
     <div id="modal-cart" class="modal">
       <div class="modal-container">
         <div class="modal-header">
@@ -147,8 +136,8 @@
         </div>
         <div class="modal-footer">
           <div class="price-total">
-            <span>Total: </span>
-            Rp0
+            Total :
+            <span>Rp0</span>
           </div>
           <button class="btn-cart" type="submit">continue</button>
         </div>

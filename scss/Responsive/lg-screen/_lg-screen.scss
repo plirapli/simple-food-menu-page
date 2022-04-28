@@ -1,0 +1,33 @@
+@include media-1280 {
+  .nav {
+    &-brand {
+      font-size: 1.5rem;
+    }
+
+    &-menu {
+      margin-top: 1.5rem;
+
+      li {
+        // border: 2px solid red;
+        border-radius: 1rem;
+        margin-bottom: 0;
+        text-align: center;
+
+        a {
+          @include flex(column);
+          padding: 1rem;
+          font-size: 1rem;
+
+          p {
+            margin: 0.5rem 0 0 0;
+          }
+        }
+      }
+    }
+  }
+
+  .search {
+    // border: 2px solid red;
+    padding: 1.5rem;
+  }
+}

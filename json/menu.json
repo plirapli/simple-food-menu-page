@@ -22,27 +22,6 @@
             "img": "../img/food-menu/pizza/pizza-1.jpg"
         },
         {
-            "id": 4,
-            "name": "pizza 4",
-            "price": 47000,
-            "type":"pizza",
-            "img": "../img/food-menu/pizza/pizza-1.jpg"
-        },
-        {
-            "id": 5,
-            "name": "pizza 5",
-            "price": 47000,
-            "type":"pizza",
-            "img": "../img/food-menu/pizza/pizza-1.jpg"
-        },
-        {
-            "id": 6,
-            "name": "pizza 6",
-            "price": 47000,
-            "type":"pizza",
-            "img": "../img/food-menu/pizza/pizza-1.jpg"
-        },
-        {
             "id": 7,
             "name": "french fries 1",
             "price": 12000,
@@ -59,27 +38,6 @@
         {
             "id": 9,
             "name": "french fries 3",
-            "price": 12000,
-            "type":"fries",
-            "img": "../img/food-menu/french-fries/french-fries-1.jpg"
-        },
-        {
-            "id": 10,
-            "name": "french fries 4",
-            "price": 12000,
-            "type":"fries",
-            "img": "../img/food-menu/french-fries/french-fries-1.jpg"
-        },
-        {
-            "id": 11,
-            "name": "french fries 5",
-            "price": 12000,
-            "type":"fries",
-            "img": "../img/food-menu/french-fries/french-fries-1.jpg"
-        },
-        {
-            "id": 12,
-            "name": "french fries 6",
             "price": 12000,
             "type":"fries",
             "img": "../img/food-menu/french-fries/french-fries-1.jpg"
@@ -106,27 +64,6 @@
             "img": "../img/food-menu/chicken/chicken-2.jpg"
         },
         {
-            "id": 16,
-            "name": "fried chicken 4",
-            "price": 24000,
-            "type":"chicken",
-            "img": "../img/food-menu/chicken/chicken-2.jpg"
-        },
-        {
-            "id": 17,
-            "name": "fried chicken 5",
-            "price": 24000,
-            "type":"chicken",
-            "img": "../img/food-menu/chicken/chicken-2.jpg"
-        },
-        {
-            "id": 18,
-            "name": "fried chicken 6",
-            "price": 24000,
-            "type":"chicken",
-            "img": "../img/food-menu/chicken/chicken-2.jpg"
-        },
-        {
             "id": 19,
             "name": "hamburger 1",
             "price": 35000,
@@ -143,27 +80,6 @@
         {
             "id": 21,
             "name": "hamburger 3",
-            "price": 35000,
-            "type": "hamburger",
-            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
-        },
-        {
-            "id": 22,
-            "name": "hamburger 4",
-            "price": 35000,
-            "type": "hamburger",
-            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
-        },
-        {
-            "id": 23,
-            "name": "hamburger 5",
-            "price": 35000,
-            "type": "hamburger",
-            "img": "../img/food-menu/hamburger/hamburger-1.jpg"
-        },
-        {
-            "id": 24,
-            "name": "hamburger 6",
             "price": 35000,
             "type": "hamburger",
             "img": "../img/food-menu/hamburger/hamburger-1.jpg"
@@ -190,27 +106,6 @@
             "img": "../img/food-menu/noodles/noodles-2.jpg"
         },
         {
-            "id": 28,
-            "name": "noodle 4",
-            "price": 35000,
-            "type": "noodle",
-            "img": "../img/food-menu/noodles/noodles-2.jpg"
-        },
-        {
-            "id": 29,
-            "name": "noodle 5",
-            "price": 35000,
-            "type": "noodle",
-            "img": "../img/food-menu/noodles/noodles-2.jpg"
-        },
-        {
-            "id": 30,
-            "name": "noodle 6",
-            "price": 40000,
-            "type": "noodle",
-            "img": "../img/food-menu/noodles/noodles-2.jpg"
-        },
-        {
             "id": 31,
             "name": "sushi 1",
             "price": 40000,
@@ -227,27 +122,6 @@
         {
             "id": 33,
             "name": "sushi 3",
-            "price": 40000,
-            "type": "sushi",
-            "img": "../img/food-menu/sushi/sushi-2.jpg"
-        },
-        {
-            "id": 34,
-            "name": "sushi 4",
-            "price": 40000,
-            "type": "sushi",
-            "img": "../img/food-menu/sushi/sushi-2.jpg"
-        },
-        {
-            "id": 35,
-            "name": "sushi 5",
-            "price": 40000,
-            "type": "sushi",
-            "img": "../img/food-menu/sushi/sushi-2.jpg"
-        },
-        {
-            "id": 36,
-            "name": "sushi 6",
             "price": 40000,
             "type": "sushi",
             "img": "../img/food-menu/sushi/sushi-2.jpg"
