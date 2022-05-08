@@ -25,13 +25,14 @@ function removingToCart(menuQty, id) {
   let menuQtyResetValue = menuQty.children[1];
   let addCartBtnShow = menuQty.parentElement.children[3];
   let cartRemoveBtn = document.querySelectorAll('.td-remove i');
+
   cartRemoveBtn.forEach((removeBtn) =>
     removeBtn.addEventListener('click', (e) => {
       let cartId = e.target.parentElement.parentElement.dataset.id;
       if (id == cartId) {
         menuQty.style.display = 'none';
         menuQtyResetValue.value = 1;
-        addCartBtnShow.style.display = 'block';
+        addCartBtnShow.style.display = 'flex';
         removeCartUi(e);
       }
     })
@@ -61,6 +62,7 @@ function updateCartTotal() {
   let cartItems = document.querySelector('.cart-items');
   let cartRows = cartItems.querySelectorAll('.cart-row');
   let total = 0;
+
   cartRows.forEach((row) => {
     let price = parseInt(
       row.querySelector('.td-price').textContent.replace('Rp', '')
@@ -216,6 +218,7 @@ function updateUiMenu(data) {
   const menus = document.querySelectorAll('.menu');
   const options = { rootMargin: '-28px' };
   updateAos(menus, options);
+  modalMenuHandler();
   addCart(addCartBtn);
 }
 
@@ -243,7 +246,6 @@ getAllMenu('all');
 
 // Search Filter
 const search = document.querySelector('.search-bar');
-const search2 = document.querySelectorAll('.search-bar')[1];
 
 search.addEventListener('input', () => {
   let value = search.value.toUpperCase();
@@ -259,11 +261,31 @@ search.addEventListener('input', () => {
   });
 });
 
-// Cart Button
+// Modal Menu
+const modalMenuHandler = () => {
+  let menus = document.querySelectorAll('.menu');
+  let modalMenu = document.getElementById('modal-menu');
+  let modalMenuClose = document.querySelector('.modal-menu-close');
+
+  menus.forEach((menu) => {
+    menu.addEventListener('click', () => {
+      console.log('modal clicked!');
+      modalMenu.style.display = 'block';
+    });
+
+    modalMenuClose.addEventListener(
+      'click',
+      () => (modalMenu.style.display = 'none')
+    );
+  });
+};
+
+// Modal Cart
 const modalCart = document.getElementById('modal-cart');
-document.getElementById('cart').addEventListener('click', () => {
+document.querySelector('#cart').addEventListener('click', () => {
   modalCart.style.display = 'block';
 });
+
 document
-  .querySelector('.modal-header .close')
+  .querySelector('.modal-cart-close')
   .addEventListener('click', () => (modalCart.style.display = 'none'));

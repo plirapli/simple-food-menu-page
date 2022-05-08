@@ -17,6 +17,7 @@
     box-shadow: $black-boxshadow;
     opacity: 0;
     transform: translateY(-10%);
+    cursor: pointer;
     @include ease();
 
     &.show-menu {
