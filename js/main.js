@@ -126,9 +126,10 @@ function addCartClicked(menu, menuQty, id, type) {
 function updateUiAddToCart(name, price, imgSrc, menuQty, id, type) {
   const cartTable = document.querySelector('.cart-items');
   const newRow = document.createElement('tr');
+
   newRow.classList.add('cart-row');
   newRow.dataset.id = id;
-  let productName = document.querySelectorAll('.product-name p');
+
   let updateUiRow = `<td class="td-name">
             <img class="img-product" src="${imgSrc}" alt="">
             <div class="product-name">
@@ -217,6 +218,7 @@ function updateUiMenu(data) {
 
   const menus = document.querySelectorAll('.menu');
   const options = { rootMargin: '-28px' };
+
   updateAos(menus, options);
   modalMenuHandler();
   addCart(addCartBtn);
@@ -262,30 +264,25 @@ search.addEventListener('input', () => {
 });
 
 // Modal Menu
-const modalMenuHandler = () => {
-  let menus = document.querySelectorAll('.menu');
-  let modalMenu = document.getElementById('modal-menu');
-  let modalMenuClose = document.querySelector('.modal-menu-close');
-
-  menus.forEach((menu) => {
-    menu.addEventListener('click', () => {
-      console.log('modal clicked!');
-      modalMenu.style.display = 'block';
-    });
-
-    modalMenuClose.addEventListener(
-      'click',
-      () => (modalMenu.style.display = 'none')
-    );
+const modalHandler = (modal, modalBtn, modalClose) => {
+  modalBtn.addEventListener('click', () => {
+    modal.style.display = 'block';
   });
+
+  modalClose.addEventListener('click', () => (modal.style.display = 'none'));
+};
+
+const modalMenuHandler = () => {
+  let menus = document.querySelectorAll('.menu > .menu-img');
+  let modalMenu = document.getElementById('modal-menu');
+  let modalClose = document.querySelector('.modal-menu-close');
+
+  menus.forEach((menuBtn) => modalHandler(menuBtn, modalMenu, modalClose));
 };
 
 // Modal Cart
-const modalCart = document.getElementById('modal-cart');
-document.querySelector('#cart').addEventListener('click', () => {
-  modalCart.style.display = 'block';
-});
+const modalCart = document.querySelector('#modal-cart');
+const cartBtn = document.querySelector('#cart');
+const modalClose = document.querySelector('.modal-cart-close');
 
-document
-  .querySelector('.modal-cart-close')
-  .addEventListener('click', () => (modalCart.style.display = 'none'));
+modalHandler(modalCart, cartBtn, modalClose);
