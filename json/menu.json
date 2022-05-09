@@ -1,130 +1,146 @@
-{
-  "menu": [
-    {
-      "id": 1,
-      "name": "pizza 1",
-      "price": 47000,
-      "type": "pizza",
-      "img": "../img/food-menu/pizza/pizza-1.jpg"
-    },
-    {
-      "id": 2,
-      "name": "pizza 2",
-      "price": 47000,
-      "type": "pizza",
-      "img": "../img/food-menu/pizza/pizza-1.jpg"
-    },
-    {
-      "id": 3,
-      "name": "pizza 3",
-      "price": 47000,
-      "type": "pizza",
-      "img": "../img/food-menu/pizza/pizza-1.jpg"
-    },
-    {
-      "id": 7,
-      "name": "french fries 1",
-      "price": 12000,
-      "type": "fries",
-      "img": "../img/food-menu/french-fries/french-fries-1.jpg"
-    },
-    {
-      "id": 8,
-      "name": "french fries 2",
-      "price": 12000,
-      "type": "fries",
-      "img": "../img/food-menu/french-fries/french-fries-1.jpg"
-    },
-    {
-      "id": 9,
-      "name": "french fries 3",
-      "price": 12000,
-      "type": "fries",
-      "img": "../img/food-menu/french-fries/french-fries-1.jpg"
-    },
-    {
-      "id": 13,
-      "name": "fried chicken 1",
-      "price": 24000,
-      "type": "chicken",
-      "img": "../img/food-menu/chicken/chicken-2.jpg"
-    },
-    {
-      "id": 14,
-      "name": "fried chicken 2",
-      "price": 24000,
-      "type": "chicken",
-      "img": "../img/food-menu/chicken/chicken-2.jpg"
-    },
-    {
-      "id": 15,
-      "name": "fried chicken 3",
-      "price": 24000,
-      "type": "chicken",
-      "img": "../img/food-menu/chicken/chicken-2.jpg"
-    },
-    {
-      "id": 19,
-      "name": "hamburger 1",
-      "price": 35000,
-      "type": "hamburger",
-      "img": "../img/food-menu/hamburger/hamburger-1.jpg"
-    },
-    {
-      "id": 20,
-      "name": "hamburger 2",
-      "price": 35000,
-      "type": "hamburger",
-      "img": "../img/food-menu/hamburger/hamburger-1.jpg"
-    },
-    {
-      "id": 21,
-      "name": "hamburger 3",
-      "price": 35000,
-      "type": "hamburger",
-      "img": "../img/food-menu/hamburger/hamburger-1.jpg"
-    },
-    {
-      "id": 25,
-      "name": "noodle 1",
-      "price": 35000,
-      "type": "noodle",
-      "img": "../img/food-menu/noodles/noodles-2.jpg"
-    },
-    {
-      "id": 26,
-      "name": "noodle 2",
-      "price": 35000,
-      "type": "noodle",
-      "img": "../img/food-menu/noodles/noodles-2.jpg"
-    },
-    {
-      "id": 27,
-      "name": "noodle 3",
-      "price": 35000,
-      "type": "noodle",
-      "img": "../img/food-menu/noodles/noodles-2.jpg"
-    },
-    {
-      "id": 31,
-      "name": "sushi 1",
-      "price": 40000,
-      "type": "sushi",
-      "img": "../img/food-menu/sushi/sushi-2.jpg"
-    },
-    {
-      "id": 32,
-      "name": "sushi 2",
-      "price": 40000,
-      "type": "sushi",
-      "img": "../img/food-menu/sushi/sushi-2.jpg"
-    },
-    {
-      "id": 33,
-      "name": "sushi 3",
-      "price": 40000,
-      "type": "sushi",
-      "img": "../img/food-menu/sushi/sushi-2.jpg"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "pizza 1",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 47000,
+    "type": "pizza",
+    "img": "../img/food-menu/pizza/pizza-1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "pizza 2",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 47000,
+    "type": "pizza",
+    "img": "../img/food-menu/pizza/pizza-1.jpg"
+  },
+  {
+    "id": 3,
+    "name": "pizza 3",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 47000,
+    "type": "pizza",
+    "img": "../img/food-menu/pizza/pizza-1.jpg"
+  },
+  {
+    "id": 7,
+    "name": "french fries 1",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 12000,
+    "type": "fries",
+    "img": "../img/food-menu/french-fries/french-fries-1.jpg"
+  },
+  {
+    "id": 8,
+    "name": "french fries 2",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 12000,
+    "type": "fries",
+    "img": "../img/food-menu/french-fries/french-fries-1.jpg"
+  },
+  {
+    "id": 9,
+    "name": "french fries 3",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 12000,
+    "type": "fries",
+    "img": "../img/food-menu/french-fries/french-fries-1.jpg"
+  },
+  {
+    "id": 13,
+    "name": "fried chicken 1",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 24000,
+    "type": "chicken",
+    "img": "../img/food-menu/chicken/chicken-2.jpg"
+  },
+  {
+    "id": 14,
+    "name": "fried chicken 2",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 24000,
+    "type": "chicken",
+    "img": "../img/food-menu/chicken/chicken-2.jpg"
+  },
+  {
+    "id": 15,
+    "name": "fried chicken 3",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 24000,
+    "type": "chicken",
+    "img": "../img/food-menu/chicken/chicken-2.jpg"
+  },
+  {
+    "id": 19,
+    "name": "hamburger 1",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 35000,
+    "type": "hamburger",
+    "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+  },
+  {
+    "id": 20,
+    "name": "hamburger 2",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 35000,
+    "type": "hamburger",
+    "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+  },
+  {
+    "id": 21,
+    "name": "hamburger 3",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 35000,
+    "type": "hamburger",
+    "img": "../img/food-menu/hamburger/hamburger-1.jpg"
+  },
+  {
+    "id": 25,
+    "name": "noodle 1",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 35000,
+    "type": "noodle",
+    "img": "../img/food-menu/noodles/noodles-2.jpg"
+  },
+  {
+    "id": 26,
+    "name": "noodle 2",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 35000,
+    "type": "noodle",
+    "img": "../img/food-menu/noodles/noodles-2.jpg"
+  },
+  {
+    "id": 27,
+    "name": "noodle 3",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 35000,
+    "type": "noodle",
+    "img": "../img/food-menu/noodles/noodles-2.jpg"
+  },
+  {
+    "id": 31,
+    "name": "sushi 1",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 40000,
+    "type": "sushi",
+    "img": "../img/food-menu/sushi/sushi-2.jpg"
+  },
+  {
+    "id": 32,
+    "name": "sushi 2",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 40000,
+    "type": "sushi",
+    "img": "../img/food-menu/sushi/sushi-2.jpg"
+  },
+  {
+    "id": 33,
+    "name": "sushi 3",
+    "desc": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, commodi dolores quaerat temporibus laudantium culpa.",
+    "price": 40000,
+    "type": "sushi",
+    "img": "../img/food-menu/sushi/sushi-2.jpg"
+  }
+]
