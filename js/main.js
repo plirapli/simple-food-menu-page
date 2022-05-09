@@ -273,11 +273,11 @@ const modalHandler = (modal, modalBtn, modalClose) => {
 };
 
 const modalMenuHandler = () => {
-  let menus = document.querySelectorAll('.menu > .menu-img');
+  let menus = document.querySelectorAll('.menu-img');
   let modalMenu = document.getElementById('modal-menu');
   let modalClose = document.querySelector('.modal-menu-close');
 
-  menus.forEach((menuBtn) => modalHandler(menuBtn, modalMenu, modalClose));
+  menus.forEach((menuBtn) => modalHandler(modalMenu, menuBtn, modalClose));
 };
 
 // Modal Cart
