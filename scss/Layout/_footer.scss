@@ -1,0 +1,9 @@
+.footer {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: $color-gray;
+  box-shadow: $black-boxshadow;
+  border-radius: 1rem;
+  @include flex();
+}

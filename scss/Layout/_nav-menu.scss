@@ -3,14 +3,6 @@
   display: none;
 }
 
-.img-product {
-  width: 4.5rem;
-  height: 4.5rem;
-  background-size: cover;
-  border-radius: 0.75rem;
-  box-shadow: $black-boxshadow;
-}
-
 .nav {
   @include flex(column, stretch);
   padding: 2rem;
