@@ -91,6 +91,14 @@
     min-width: 224px;
     // border: 2px solid red;
 
+    .img-product {
+      width: 4.5rem;
+      height: 4.5rem;
+      background-size: cover;
+      border-radius: 0.75rem;
+      box-shadow: $black-boxshadow;
+    }
+
     .product-name {
       // border: 2px solid red;
       width: 100%;

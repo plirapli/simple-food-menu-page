@@ -79,11 +79,11 @@ function updateUiMenu(data) {
 
   const menus = document.querySelectorAll('.menu');
   const options = { rootMargin: '-28px' };
-  // let addCartBtn = document.querySelectorAll('.add-cart');
+  let addCartBtn = document.querySelectorAll('.add-cart');
 
   modalMenuHandler(data);
   aos(menus, options);
-  // addCart(addCartBtn);
+  addCart(addCartBtn);
 }
 
 function aos(data, option) {
