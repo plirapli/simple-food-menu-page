@@ -7,6 +7,115 @@ document.querySelector('.menu-bar').addEventListener('click', () => {
     .forEach((btn) => btn.classList.toggle('close'));
 });
 
+// Nav Menu
+const navMenu = document.querySelectorAll('.nav-name');
+navMenu.forEach((nav) => {
+  let name = nav.firstElementChild.lastElementChild.textContent;
+  nav.addEventListener('click', () => {
+    let menuType = name;
+    getNav(menuType);
+  });
+});
+
+function getNav(type) {
+  let typeOfMenu = type;
+  const navName = document.querySelectorAll('.nav-name');
+  const activeNav = document.querySelector('.nav-name.active');
+
+  const navType = document.getElementById(typeOfMenu);
+
+  navName.forEach((nav) => {
+    if (nav === activeNav) {
+      nav.classList.remove('active');
+    } else {
+      navType.classList.add('active');
+    }
+  });
+
+  getAllMenu(typeOfMenu);
+}
+
+getAllMenu('all');
+
+// Fetch Menu from JSON
+async function getAllMenu(type) {
+  let menuType = type;
+
+  const getData = await fetch('../json/menu.json');
+  const res = await getData.json();
+
+  if (menuType === 'all') {
+    updateUiMenu(res);
+  } else {
+    let newType = res.filter((menu) => menu.type === menuType);
+    updateUiMenu(newType);
+  }
+}
+
+function updateUiMenu(data) {
+  const menuContent = document.getElementById('menu-content');
+  let output = '';
+
+  data.forEach((m) => {
+    output += `
+      <div class="menu" data-id=${m.id} data-type=${m.type}>
+        <div class="menu-img">
+          <img src="${m.img}" alt="">
+        </div>
+        <p class="menu-name">${m.name}</p>
+        <p class="menu-price">Rp${m.price}</p>
+        <div class="add-cart">
+          <i class="fas fa-plus"></i>
+        </div>
+        <div class="menu-qty">
+          <div class="qty-change qty-min">-</div>
+          <input type="number" class="input-qty" readonly value=1 min=1>
+          <div class="qty-change qty-plus">+</div>
+        </div>
+      </div>
+    `;
+  });
+  menuContent.innerHTML = output;
+
+  const menus = document.querySelectorAll('.menu');
+  const options = { rootMargin: '-28px' };
+  // let addCartBtn = document.querySelectorAll('.add-cart');
+
+  modalMenuHandler(data);
+  aos(menus, options);
+  // addCart(addCartBtn);
+}
+
+function aos(data, option) {
+  observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0) {
+        entry.target.classList.add('show-menu');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, option);
+
+  data.forEach((anim) => observer.observe(anim));
+}
+
+// Search Filter
+const search = document.querySelector('.search-bar');
+
+search.addEventListener('input', () => {
+  let value = search.value.toUpperCase();
+  let menus = document.querySelectorAll('.menu');
+
+  menus.forEach((menu) => {
+    let name = menu.querySelector('.menu-name');
+    if (name.innerHTML.toUpperCase().indexOf(value) > -1) {
+      menu.style.display = '';
+    } else {
+      menu.style.display = 'none';
+    }
+  });
+});
+
 // CART
 // Update Notification Badge on Cart
 function updateCartBadge() {
@@ -150,133 +259,20 @@ function updateUiAddToCart(name, price, imgSrc, menuQty, id, type) {
   removingToCart(menuQty, id);
 }
 
-// Nav Menu
-const navMenu = document.querySelectorAll('.nav-name');
-navMenu.forEach((nav) => {
-  let name = nav.firstElementChild.lastElementChild.textContent;
-  nav.addEventListener('click', () => {
-    let menuType = name;
-    getNav(menuType);
-  });
-});
+// Modal Cart
+const modalCart = document.querySelector('#modal-cart');
+const cartBtn = document.querySelector('#cart');
+const modalClose = document.querySelector('.modal-cart-close');
 
-function getNav(type) {
-  let typeOfMenu = type;
-  const navName = document.querySelectorAll('.nav-name');
-  const activeNav = document.querySelector('.nav-name.active');
-
-  const navType = document.getElementById(typeOfMenu);
-
-  navName.forEach((nav) => {
-    if (nav === activeNav) {
-      nav.classList.remove('active');
-    } else {
-      navType.classList.add('active');
-    }
-  });
-
-  getAllMenu(typeOfMenu);
-}
-
-// Fetch Menu from JSON
-async function getAllMenu(type) {
-  let menuType = type;
-
-  const getData = await fetch('../json/menu.json');
-  const res = await getData.json();
-
-  if (menuType === 'all') {
-    updateUiMenu(res);
-  } else {
-    let newType = res.filter((menu) => menu.type === menuType);
-    updateUiMenu(newType);
-  }
-}
-
-function updateUiMenu(data) {
-  const menuContent = document.getElementById('menu-content');
-  let output = '';
-
-  data.forEach((m) => {
-    output += `
-      <div class="menu" data-id=${m.id} data-type=${m.type}>
-        <div class="menu-img">
-          <img src="${m.img}" alt="">
-        </div>
-        <p class="menu-name">${m.name}</p>
-        <p class="menu-price">Rp${m.price}</p>
-        <div class="add-cart">
-          <i class="fas fa-plus"></i>
-        </div>
-        <div class="menu-qty">
-          <div class="qty-change qty-min">-</div>
-          <input type="number" class="input-qty" readonly value=1 min=1>
-          <div class="qty-change qty-plus">+</div>
-        </div>
-      </div>
-    `;
-  });
-  menuContent.innerHTML = output;
-
-  let addCartBtn = document.querySelectorAll('.add-cart');
-  const menus = document.querySelectorAll('.menu');
-  const options = { rootMargin: '-28px' };
-
-  modalMenuHandler(data);
-  updateAos(menus, options);
-  addCart(addCartBtn);
-}
-
-// Animate On Scroll
-function updateAos(menu, option) {
-  const data = menu;
-  const opt = option;
-  aos(data, opt);
-}
-
-function aos(animate, option) {
-  observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.intersectionRatio > 0) {
-        entry.target.classList.add('show-menu');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, option);
-
-  animate.forEach((anim) => observer.observe(anim));
-}
-
-getAllMenu('all');
-
-// Search Filter
-const search = document.querySelector('.search-bar');
-
-search.addEventListener('input', () => {
-  let value = search.value.toUpperCase();
-  let menus = document.querySelectorAll('.menu');
-
-  menus.forEach((menu) => {
-    let name = menu.querySelector('.menu-name');
-    if (name.innerHTML.toUpperCase().indexOf(value) > -1) {
-      menu.style.display = '';
-    } else {
-      menu.style.display = 'none';
-    }
-  });
-});
+cartBtn.addEventListener('click', () => (modalCart.style.display = 'block'));
+modalClose.addEventListener('click', () => (modalCart.style.display = 'none'));
 
 // Modal Menu
-const modalHandler = (modal, modalBtn, modalClose) => {
-  modalBtn.addEventListener('click', () => (modal.style.display = 'block'));
-  modalClose.addEventListener('click', () => (modal.style.display = 'none'));
-};
-
 const modalMenuHandler = (data) => {
   let modal = document.querySelector('#modal-menu');
   let menus = document.querySelectorAll('.menu-img');
 
-  menus.forEach(async (menuBtn) => {
+  menus.forEach((menuBtn) => {
     menuBtn.addEventListener('click', () => {
       // Mencari detail menu yang sesuai dengan id yang diklik
       const menu = data.find((d) => menuBtn.parentElement.dataset.id == d.id);
@@ -308,10 +304,3 @@ const modalMenuHandler = (data) => {
     });
   });
 };
-
-// Modal Cart
-const modalCart = document.querySelector('#modal-cart');
-const cartBtn = document.querySelector('#cart');
-const modalClose = document.querySelector('.modal-cart-close');
-
-modalHandler(modalCart, cartBtn, modalClose);
